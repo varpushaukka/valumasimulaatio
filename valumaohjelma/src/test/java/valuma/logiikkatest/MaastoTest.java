@@ -18,27 +18,34 @@ import static org.junit.Assert.*;
  */
 public class MaastoTest {
     
-    public MaastoTest() {
-    }
-    
-    @BeforeClass
-    public static void setUpClass() {
-    }
-    
-    @AfterClass
-    public static void tearDownClass() {
-    }
+    Maasto testiMaa;
     
     @Before
     public void setUp() {
+         testiMaa = new Maasto(10);
     }
     
-    @After
-    public void tearDown() {
-    }
+ 
     @Test
     public void konstruktoriAsettaaMaastonOikein() {
-        Maasto testiMaa = new Maasto(10);
+
+        boolean testi = testiMaa.getMaankorkeus(1, 1) >= 10;
+        if (!testi) fail("Maa on liian matala");
+    }
+    @Test
+    public void konstruktoriAsettaaVedenOikein() {
+        
+        boolean testi = testiMaa.getVedenkorkeus(1, 1) == 0;
+        if (!testi) fail("Vettä on väärä määrä");
+    }
+    @Test
+    public void onkoUlkopuolellaToimiiOikein() {
+        
+        if (!testiMaa.onkoUlkopuolella(12, 12)) fail("pisteen pitäisi olla ulkopuolella");
+    }
+    @Test
+    public void lisaaVettaToimii() {
         
     }
+    
 }

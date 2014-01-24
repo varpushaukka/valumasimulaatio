@@ -38,7 +38,7 @@ public class Maasto {
         }
     }    
     
-    private boolean onkoUlkopuolella(int x, int y) {
+    public boolean onkoUlkopuolella(int x, int y) {
         if (x < 0 || x > koko) return true;
         if (y < 0 || y > koko) return true;
         return false;
