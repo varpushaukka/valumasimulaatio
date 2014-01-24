@@ -1,0 +1,5 @@
+Aihe: Karkeistettu valumasimulaatio
+
+Toteutetaan soluautomaatti, jolla simuloidaan (karkeasti) veden valumista maastossa ja sen aiheuttamaa eroosiota. Jokaisella solulla on maankorkeus ja vedenkorkeus. Hilaa päivitetään satunnaisista kohdista siten, että lasketaan päivitettävän solun ympäriltä solujen korkeuden keskiarvo ja annetaan se kyseiselle solulle ja sen ympärillä oleville soluille korkeudeksi. Aina kun vesi virtaa solusta pois, se vähentää maanpinnan korkeutta hieman, koska se kuluttaa sitä.
+
+Toiminnot: Käyttäjä valitsee hiirellä klikkaamalla solun. Kyseisen solun veden korkeutta nostetaan tietty määrä. Klikkauksen on siten tarkoitus simuloida sadetta tms. vettä lisäävää ilmiötä. 
