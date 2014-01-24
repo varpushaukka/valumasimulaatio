@@ -1,4 +1,4 @@
-package valuma.valumaohjelma;
+package valuma.logiikka;
 
 import junit.framework.Test;
 import junit.framework.TestCase;
