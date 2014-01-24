@@ -46,6 +46,9 @@ public class MaastoTest {
     @Test
     public void lisaaVettaToimii() {
         
+        testiMaa.lisaaVetta(2, 2, 0.2f);
+        boolean onnistuiko = testiMaa.getVedenkorkeus(2, 2) == 0.2f;
+        if (!onnistuiko) fail("veden lisäys epäonnistui");
     }
     
 }

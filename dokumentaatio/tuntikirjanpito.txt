@@ -1,0 +1,8 @@
+Tuntikirjanpito:
+
+(huomioitu myös hylättyyn aiheeseen kulunut aika)
+- githubin ja netbeansin asetusten konfaus 2h 
+- aiheen miettiminen ja kirjoittaminen 2,5h
+- logiikkaluokan koodaus 3h
+- otm-kurssin asioiden kertaus ja opettelu 1h
+- testien koodaus 1h
