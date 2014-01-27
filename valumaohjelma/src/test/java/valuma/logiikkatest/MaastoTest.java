@@ -67,6 +67,17 @@ public class MaastoTest {
             fail("maa: " + testiMaa.getMaankorkeus(5, 5) + " vesi: " + testiMaa.getVedenkorkeus(5, 5) + "maa2: " + testiMaa.getMaankorkeus(5, 6));
         }
     }
+    @Test
+    public void tasaaPystyToimiiKunMaaEpatasainen() {
+        testiMaa.setMaankorkeus(5, 5, 10.5f);
+        testiMaa.setMaankorkeus(5, 6, 10.0f);
+        testiMaa.setVedenkorkeus(5, 5, 0.5f);
+        testiMaa.setVedenkorkeus(5, 6, 0f);
+        testiMaa.tasaaPysty(5, 5);
+        if (!(Math.abs(testiMaa.getYhteiskorkeus(5, 5) - testiMaa.getYhteiskorkeus(5, 6)) < 0.0001f)) {
+            fail("maa: " + testiMaa.getMaankorkeus(5, 5) + " vesi: " + testiMaa.getVedenkorkeus(5, 5) + "maa2: " + testiMaa.getMaankorkeus(5, 6));
+        }
+    }
 //    @Test
 //    public void asetaKorkeuteenToimiiKunLisataan() {
 //        float testi = testiMaa.getYhteiskorkeus(1, 1);
