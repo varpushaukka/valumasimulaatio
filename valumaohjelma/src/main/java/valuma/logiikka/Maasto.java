@@ -43,6 +43,9 @@ public class Maasto {
         if (y < 0 || y > koko) return true;
         return false;
     }
+    public int getKoko() {
+        return this.koko;
+    }
         
     public float getMaankorkeus(int x, int y) {
         if (this.onkoUlkopuolella(x, y)) return 0; //koska valumisen on tarkoitus toimia maaston ulkopuolellakin
