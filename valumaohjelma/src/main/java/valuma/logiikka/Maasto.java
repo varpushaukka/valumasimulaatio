@@ -82,7 +82,7 @@ public class Maasto {
 //        return yhteensa / 4;
 //    }
     public float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
-        float pyynto = toivekorkeus - getYhteiskorkeus(x, y);
+        float pyynto = getYhteiskorkeus(x, y) - toivekorkeus;
         float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
         if (maxLuovutus >= pyynto) return pyynto;
         return maxLuovutus;
