@@ -74,13 +74,7 @@ public class Maasto {
     public void lisaaMaata(int x, int y, float maara) {
         setMaankorkeus(x, y, getMaankorkeus(x, y) + maara);
     }
-//    
-//    public float pisteenKeskiarvo(int x, int y) {
-//        //lasketaan neljän solun keskiarvo  
-//        float yhteensa = getYhteiskorkeus(x, y) + getYhteiskorkeus(x+1, y+1) +
-//                         getYhteiskorkeus(x, y+1) + getYhteiskorkeus(x+1, y);
-//        return yhteensa / 4;
-//    }
+    
     public float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
         float pyynto = getYhteiskorkeus(x, y) - toivekorkeus;
         float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
@@ -112,6 +106,14 @@ public class Maasto {
     public void tasaaVaaka(int x, int y) {
         tasaa(x, y, x + 1, y);
     }
+
+//    
+//    public float pisteenKeskiarvo(int x, int y) {
+//        //lasketaan neljän solun keskiarvo  
+//        float yhteensa = getYhteiskorkeus(x, y) + getYhteiskorkeus(x+1, y+1) +
+//                         getYhteiskorkeus(x, y+1) + getYhteiskorkeus(x+1, y);
+//        return yhteensa / 4;
+//    }
     
 //    public void valuta(int x, int y) {
 //        // jokaisesta lasketaan paljonko luovuttaa vetta, 

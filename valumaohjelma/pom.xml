@@ -39,10 +39,18 @@
             <version>2.6</version>
         </plugin>
         <plugin>
-            <groupId>org.pitest</groupId>
-            <artifactId>pitest-maven</artifactId>
-            <version>0.30</version>
-        </plugin>
+    <groupId>org.pitest</groupId>
+    <artifactId>pitest-maven</artifactId>
+    <version>0.30</version>
+    <configuration>
+        <targetClasses>
+            <param>valuma.logiikka*</param>
+        </targetClasses>
+        <targetTests>
+            <param>valuma.logiikka*</param>
+        </targetTests>
+    </configuration>
+</plugin>
     </plugins>
 </build>
 </project>
