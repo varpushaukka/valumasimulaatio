@@ -25,7 +25,7 @@ public class Maasto {
     public void asetaMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-                maankorkeus[i][j] = 10 + rnd.nextFloat();
+                setMaankorkeus(i, j, 10 + rnd.nextFloat());
             }
         }
     }
@@ -33,7 +33,7 @@ public class Maasto {
     public void asetaVesi() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-                vedenkorkeus[i][j] = 0;
+                setVedenkorkeus(i, j, 0f);
             }
         }
     }    
@@ -74,27 +74,58 @@ public class Maasto {
     public void lisaaMaata(int x, int y, float maara) {
         setMaankorkeus(x, y, getMaankorkeus(x, y) + maara);
     }
-    
-    public float pisteenKeskiarvo(int x, int y) {
-        //lasketaan neljän solun keskiarvo  
-        float yhteensa = getYhteiskorkeus(x, y) + getYhteiskorkeus(x+1, y+1) +
-                         getYhteiskorkeus(x, y+1) + getYhteiskorkeus(x+1, y);
-        return yhteensa / 4;
+//    
+//    public float pisteenKeskiarvo(int x, int y) {
+//        //lasketaan neljän solun keskiarvo  
+//        float yhteensa = getYhteiskorkeus(x, y) + getYhteiskorkeus(x+1, y+1) +
+//                         getYhteiskorkeus(x, y+1) + getYhteiskorkeus(x+1, y);
+//        return yhteensa / 4;
+//    }
+    public float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
+        float pyynto = toivekorkeus - getYhteiskorkeus(x, y);
+        float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
+        if (maxLuovutus >= pyynto) return pyynto;
+        return maxLuovutus;
     }
     
-    public void asetaKorkeuteen(int x, int y, float keskiarvo) {
-        float muutos = keskiarvo - getYhteiskorkeus(x, y);
+    public void lisaaAinetta(int x, int y, float muutos) {
         lisaaVetta(x, y, muutos * 0.9f);
         lisaaMaata(x, y, muutos * 0.1f);
     }
     
-    public void valuta(int x, int y) {
-        float keskiarvo = pisteenKeskiarvo(x, y);
-        this.asetaKorkeuteen(x, y, keskiarvo);
-        this.asetaKorkeuteen(x+1, y, keskiarvo);
-        this.asetaKorkeuteen(x, y+1, keskiarvo);
-        this.asetaKorkeuteen(x+1, y+1, keskiarvo);
+    public void siirraAinetta(int x1, int y1, int x2, int y2, float maara) {
+        lisaaAinetta(x2, y2, maara);
+        lisaaAinetta(x1, y1, -maara);
     }
+    
+    public void tasaa(int x1, int y1, int x2, int y2) {
+        float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
+        float eka = paljonkoLuovuttaaAinetta(x1, y1, keskiarvo);
+        float toka = paljonkoLuovuttaaAinetta(x2, y2, keskiarvo);
+        if (eka > 0) siirraAinetta(x1, y1, x2, y2, eka);
+        if (toka > 0) siirraAinetta(x2, y2, x1, y1, toka);
+    }
+    
+    public void tasaaPysty(int x, int y) {
+        tasaa(x, y, x, y + 1);
+    }
+    public void tasaaVaaka(int x, int y) {
+        tasaa(x, y, x + 1, y);
+    }
+    
+//    public void valuta(int x, int y) {
+//        // jokaisesta lasketaan paljonko luovuttaa vetta, 
+//        // ne jotka suostuu luovuttamaan, luovuttaa sen verran kuin ne suostuu
+//        
+//        float luovutussumma;
+//        float vastaanottajat;
+//        
+//        float keskiarvo = pisteenKeskiarvo(x, y);
+//        this.asetaKorkeuteen(x, y, keskiarvo);
+//        this.asetaKorkeuteen(x+1, y, keskiarvo);
+//        this.asetaKorkeuteen(x, y+1, keskiarvo);
+//        this.asetaKorkeuteen(x+1, y+1, keskiarvo);
+//    }
 }
 
 //maasto, päivittäjä ja maastoikkuna 

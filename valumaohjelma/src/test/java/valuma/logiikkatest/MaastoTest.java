@@ -55,16 +55,23 @@ public class MaastoTest {
         testiMaa.lisaaMaata(1, 2, 0.5f);
         if (testiMaa.getMaankorkeus(1, 2) - 0.5f != alku) fail("maata lisättiin väärä määrä");
     }
+    
     @Test
-    public void asetaKorkeuteenToimiiKunLisataan() {
-        float testi = testiMaa.getYhteiskorkeus(1, 1);
-        testiMaa.asetaKorkeuteen(1, 1, 10.999f);
-        if (testi >= testiMaa.getYhteiskorkeus(1, 1)) fail("korkeus ei lisäätynyt");
+    public void tasaaPystyToimii() {
+        testiMaa.setMaankorkeus(5, 5, 10.5f);
+        testiMaa.setMaankorkeus(5, 6, 10.5f);
+        testiMaa.setVedenkorkeus(5, 5, 0.5f);
     }
-    @Test
-    public void asetaKorkeuteenToimiiKunVahennetaan() {
-        float testi = testiMaa.getYhteiskorkeus(5, 5);
-        testiMaa.asetaKorkeuteen(5, 5, 10.01f);
-        if (testi <= testiMaa.getYhteiskorkeus(5, 5)) fail("korkeus ei vähentynyt");
-    }
+//    @Test
+//    public void asetaKorkeuteenToimiiKunLisataan() {
+//        float testi = testiMaa.getYhteiskorkeus(1, 1);
+//        testiMaa.asetaKorkeuteen(1, 1, 10.999f);
+//        if (testi >= testiMaa.getYhteiskorkeus(1, 1)) fail("korkeus ei lisäätynyt");
+//    }
+//    @Test
+//    public void asetaKorkeuteenToimiiKunVahennetaan() {
+//        float testi = testiMaa.getYhteiskorkeus(5, 5);
+//        testiMaa.asetaKorkeuteen(5, 5, 10.01f);
+//        if (testi <= testiMaa.getYhteiskorkeus(5, 5)) fail("korkeus ei vähentynyt");
+//    }
 }
