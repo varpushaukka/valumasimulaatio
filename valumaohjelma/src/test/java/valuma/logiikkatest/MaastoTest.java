@@ -88,12 +88,29 @@ public class MaastoTest {
     public void tasaaPystyToimiiKunMaaEpatasainen() {
         testiMaa.setMaankorkeus(5, 5, 10.5f);
         testiMaa.setMaankorkeus(5, 6, 10.0f);
-        testiMaa.setVedenkorkeus(5, 5, 0.5f);
+        testiMaa.setVedenkorkeus(5, 5, 0.9f);
         testiMaa.setVedenkorkeus(5, 6, 0f);
         testiMaa.tasaaPysty(5, 5);
         assertTrue("maa: " + testiMaa.getMaankorkeus(5, 5) + " vesi: " + testiMaa.getVedenkorkeus(5, 5) + "maa2: " + testiMaa.getMaankorkeus(5, 6), 
                 (Math.abs(testiMaa.getYhteiskorkeus(5, 5) - testiMaa.getYhteiskorkeus(5, 6)) < 0.0001f));
         assertTrue(vesiEiOleNegatiivinen());
+    }
+    
+    @Test
+    public void tasaaPystyToimiiKunMaaOletus() {
+        testiMaa.setVedenkorkeus(3, 5, 0.9f);
+        testiMaa.setVedenkorkeus(3, 6, 0.2f);
+        testiMaa.tasaaPysty(3, 5);
+        assertTrue("maa: " + testiMaa.getMaankorkeus(3, 5) + " vesi: " + testiMaa.getVedenkorkeus(3, 5) + "maa2: " + testiMaa.getMaankorkeus(3, 6) + "vesi: " + testiMaa.getVedenkorkeus(3, 6), 
+                (Math.abs(testiMaa.getYhteiskorkeus(3, 5) - testiMaa.getYhteiskorkeus(3, 6)) < 0.0001f));
+        assertTrue(vesiEiOleNegatiivinen());
+    }
+    
+    @Test
+    public void vaakatasaamisenJalkeenVettaSamaMaara() {
+        testiMaa.setVedenkorkeus(4, 4, 0.6f);
+        testiMaa.tasaaVaaka(4, 4);
+        assertTrue(testiMaa.getVedenkorkeus(4, 4) + testiMaa.getVedenkorkeus(5, 4) == 0.6f);
     }
 //    @Test
 //    public void asetaKorkeuteenToimiiKunLisataan() {

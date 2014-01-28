@@ -43,6 +43,7 @@ public class Maasto {
         if (y < 0 || y > koko) return true;
         return false;
     }
+    
     public int getKoko() {
         return this.koko;
     }
