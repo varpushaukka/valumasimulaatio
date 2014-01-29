@@ -120,7 +120,7 @@ public class MaastoTest {
         testiMaa.setVedenkorkeus(5, 5, 0.6f);
         testiMaa.tasaaVaaka(5, 5);
         assertTrue("Maa 5, 5: " + testiMaa.getMaankorkeus(5, 5) + " Maa 6, 5: " + testiMaa.getMaankorkeus(6,5), 
-                (Math.abs(testiMaa.getMaankorkeus(5, 5) + testiMaa.getMaankorkeus(6, 5)) - 10.6f) < 0.0001f);
+                testiMaa.getMaankorkeus(5, 5) + testiMaa.getMaankorkeus(6, 5) == 20.6f);
     }
 //    @Test
 //    public void asetaKorkeuteenToimiiKunLisataan() {
