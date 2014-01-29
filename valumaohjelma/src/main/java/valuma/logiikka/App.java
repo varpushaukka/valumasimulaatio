@@ -4,7 +4,6 @@ package valuma.logiikka;
  * Hello world!
  *
  */
-import kayttoliittyma.Tekstikayttoliittyma;
 public class App 
 {
     public static void main( String[] args )
@@ -24,12 +23,20 @@ public class App
         System.out.println(testiMaa.getYhteiskorkeus(5, 5));
         System.out.println(testiMaa.getYhteiskorkeus(6, 5));
         System.out.println(testiMaa.getMaankorkeus(5, 5) + testiMaa.getMaankorkeus(6, 5));
-        Paivittaja p = new Paivittaja(10);
-        p.tulostaVesimaailma();
-        p.sada(2, 2, 2f);
-        p.sada(4, 4, 1f);
-        p.sada(6, 6, 2f);
+        Paivittaja p = new Paivittaja(new Maasto(10));
+        p.sada(3, 3, 3);
+//        p.tulostaVesimaailma();
+//        p.sada(2, 2, 2f);
+//        p.sada(4, 4, 1f);
+//        p.sada(6, 6, 2f);
+//        p.sada(8, 8, 2f);
+//        System.out.println("");
+//        p.paivita(5);
+//        p.sada(9, 2, 4f);
+//        p.tulostaVesimaailma();
+//        System.out.println("");
+//        p.paivita(20);
         
-        p.paivita();
+        p.tulostaVesimaailma();
     }
 }

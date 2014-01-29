@@ -4,7 +4,7 @@
  * and open the template in the editor.
  */
 
-package kayttoliittyma;
+package valuma.kayttoliittyma;
 
 import valuma.logiikka.Paivittaja;
 
@@ -16,7 +16,7 @@ public class Tekstikayttoliittyma {
     private Paivittaja maailmanluoja;
 
     public Tekstikayttoliittyma() {
-        maailmanluoja = new Paivittaja(20);
+//        maailmanluoja = new Paivittaja(20);
     }
     
     

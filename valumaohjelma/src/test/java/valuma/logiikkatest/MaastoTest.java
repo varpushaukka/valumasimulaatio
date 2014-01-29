@@ -26,8 +26,6 @@ public class MaastoTest {
     }
     
     
-    
- 
     @Test
     public void konstruktoriAsettaaMaastonOikein() {
         Maasto test = new Maasto(10);
@@ -45,6 +43,16 @@ public class MaastoTest {
     @Test
     public void onkoUlkopuolellaToimiiOikein() {
         assertTrue(testiMaa.onkoUlkopuolella(12, 12));
+    }
+    
+    @Test
+    public void maagetteriToimii() {
+        assertNotNull(testiMaa.getMaankorkeus(20, 20));
+    }
+    
+    @Test
+    public void vesigetteriToimii() {
+        assertNotNull(testiMaa.getVedenkorkeus(20, 20));
     }
     
     @Test
@@ -119,16 +127,4 @@ public class MaastoTest {
         }
     }
     
-//    @Test
-//    public void asetaKorkeuteenToimiiKunLisataan() {
-//        float testi = testiMaa.getYhteiskorkeus(1, 1);
-//        testiMaa.asetaKorkeuteen(1, 1, 10.999f);
-//        if (testi >= testiMaa.getYhteiskorkeus(1, 1)) fail("korkeus ei lisäätynyt");
-//    }
-//    @Test
-//    public void asetaKorkeuteenToimiiKunVahennetaan() {
-//        float testi = testiMaa.getYhteiskorkeus(5, 5);
-//        testiMaa.asetaKorkeuteen(5, 5, 10.01f);
-//        if (testi <= testiMaa.getYhteiskorkeus(5, 5)) fail("korkeus ei vähentynyt");
-//    }
 }

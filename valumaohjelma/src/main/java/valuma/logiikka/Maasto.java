@@ -39,8 +39,8 @@ public class Maasto {
     }    
     
     public boolean onkoUlkopuolella(int x, int y) {
-        if (x < 0 || x > koko) return true;
-        return y < 0 || y > koko;
+        if (x < 0 || x >= koko) return true;
+        return y < 0 || y >= koko;
     }
     
     public int getKoko() {
@@ -110,27 +110,6 @@ public class Maasto {
         tasaa(x, y, x + 1, y);
     }
 
-//    
-//    public float pisteenKeskiarvo(int x, int y) {
-//        //lasketaan neljän solun keskiarvo  
-//        float yhteensa = getYhteiskorkeus(x, y) + getYhteiskorkeus(x+1, y+1) +
-//                         getYhteiskorkeus(x, y+1) + getYhteiskorkeus(x+1, y);
-//        return yhteensa / 4;
-//    }
-    
-//    public void valuta(int x, int y) {
-//        // jokaisesta lasketaan paljonko luovuttaa vetta, 
-//        // ne jotka suostuu luovuttamaan, luovuttaa sen verran kuin ne suostuu
-//        
-//        float luovutussumma;
-//        float vastaanottajat;
-//        
-//        float keskiarvo = pisteenKeskiarvo(x, y);
-//        this.asetaKorkeuteen(x, y, keskiarvo);
-//        this.asetaKorkeuteen(x+1, y, keskiarvo);
-//        this.asetaKorkeuteen(x, y+1, keskiarvo);
-//        this.asetaKorkeuteen(x+1, y+1, keskiarvo);
-//    }
 }
 
 //maasto, päivittäjä ja maastoikkuna 
