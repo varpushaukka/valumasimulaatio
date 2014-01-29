@@ -26,16 +26,7 @@ public class MaastoTest {
     }
     
     
-    public boolean vesiEiOleNegatiivinen() {
-        //tämä on tarkoitettu invariantiksi, koska veden määrän ei milloinkaan kuulu olla negatiivinen
-        for (int i = 0; i < testiMaa.getKoko(); i++) {
-            for (int j = 0; j < testiMaa.getKoko(); j++) {
-                if(testiMaa.getVedenkorkeus(i, j) >= 0) continue;
-                else return false;
-            }
-        }
-        return true;
-    }
+    
  
     @Test
     public void konstruktoriAsettaaMaastonOikein() {
@@ -54,7 +45,6 @@ public class MaastoTest {
     @Test
     public void onkoUlkopuolellaToimiiOikein() {
         assertTrue(testiMaa.onkoUlkopuolella(12, 12));
-        assertTrue(vesiEiOleNegatiivinen());
     }
     
     @Test
@@ -62,14 +52,13 @@ public class MaastoTest {
         testiMaa.lisaaVetta(2, 2, 0.2f);
         boolean onnistuiko = testiMaa.getVedenkorkeus(2, 2) == 0.2f;
         assertTrue(onnistuiko) ;
-        assertTrue(vesiEiOleNegatiivinen());
     }
+    
     @Test
     public void lisaaMaataToimii() {
         float alku = testiMaa.getMaankorkeus(1, 2);
         testiMaa.lisaaMaata(1, 2, 0.5f);
         assertTrue(testiMaa.getMaankorkeus(1, 2) - 0.5f == alku);
-        assertTrue(vesiEiOleNegatiivinen());
     }
     
     @Test
@@ -81,7 +70,6 @@ public class MaastoTest {
         testiMaa.tasaaPysty(5, 5);
         assertTrue("maa: " + testiMaa.getMaankorkeus(5, 5) + " vesi: " + testiMaa.getVedenkorkeus(5, 5) + "maa2: " + testiMaa.getMaankorkeus(5, 6), 
                 (Math.abs(testiMaa.getYhteiskorkeus(5, 5) - testiMaa.getYhteiskorkeus(5, 6)) < 0.0001f));
-        assertTrue(vesiEiOleNegatiivinen());
     }
     
     @Test
@@ -93,7 +81,6 @@ public class MaastoTest {
         testiMaa.tasaaPysty(5, 5);
         assertTrue("maa: " + testiMaa.getMaankorkeus(5, 5) + " vesi: " + testiMaa.getVedenkorkeus(5, 5) + "maa2: " + testiMaa.getMaankorkeus(5, 6), 
                 (Math.abs(testiMaa.getYhteiskorkeus(5, 5) - testiMaa.getYhteiskorkeus(5, 6)) < 0.0001f));
-        assertTrue(vesiEiOleNegatiivinen());
     }
     
     @Test
@@ -103,7 +90,6 @@ public class MaastoTest {
         testiMaa.tasaaPysty(3, 5);
         assertTrue("maa: " + testiMaa.getMaankorkeus(3, 5) + " vesi: " + testiMaa.getVedenkorkeus(3, 5) + "maa2: " + testiMaa.getMaankorkeus(3, 6) + "vesi: " + testiMaa.getVedenkorkeus(3, 6), 
                 (Math.abs(testiMaa.getYhteiskorkeus(3, 5) - testiMaa.getYhteiskorkeus(3, 6)) < 0.0001f));
-        assertTrue(vesiEiOleNegatiivinen());
     }
     
     @Test
@@ -114,7 +100,7 @@ public class MaastoTest {
     }
     
     @Test
-    public void vaakatasaamisenJalkeenMaataSamaMaara() {
+    public void vaakatasaamisenJalkeenMaataSamaMaara() {    
         testiMaa.setMaankorkeus(5, 5, 10.3f);
         testiMaa.setMaankorkeus(6, 5, 10.3f);
         testiMaa.setVedenkorkeus(5, 5, 0.6f);
@@ -122,6 +108,17 @@ public class MaastoTest {
         assertTrue("Maa 5, 5: " + testiMaa.getMaankorkeus(5, 5) + " Maa 6, 5: " + testiMaa.getMaankorkeus(6,5), 
                 testiMaa.getMaankorkeus(5, 5) + testiMaa.getMaankorkeus(6, 5) == 20.6f);
     }
+    
+    @Test
+    public void vesiEiOleNegatiivinen() {
+        //tämä on tarkoitettu invariantiksi, koska veden määrän ei milloinkaan kuulu olla negatiivinen
+        for (int i = 0; i < testiMaa.getKoko(); i++) {
+            for (int j = 0; j < testiMaa.getKoko(); j++) {
+                assertTrue(testiMaa.getVedenkorkeus(i, j) >= 0);
+            }
+        }
+    }
+    
 //    @Test
 //    public void asetaKorkeuteenToimiiKunLisataan() {
 //        float testi = testiMaa.getYhteiskorkeus(1, 1);

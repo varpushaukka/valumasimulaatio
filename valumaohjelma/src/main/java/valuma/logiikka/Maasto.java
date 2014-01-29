@@ -40,8 +40,7 @@ public class Maasto {
     
     public boolean onkoUlkopuolella(int x, int y) {
         if (x < 0 || x > koko) return true;
-        if (y < 0 || y > koko) return true;
-        return false;
+        return y < 0 || y > koko;
     }
     
     public int getKoko() {
@@ -62,14 +61,14 @@ public class Maasto {
         return this.getMaankorkeus(x,y) + this.getVedenkorkeus(x,y);
     }
     
-    public void setMaankorkeus(int x, int y, float n) {
+    public void setMaankorkeus(int x, int y, float korkeus) {
         if (this.onkoUlkopuolella(x, y)) return;
-        maankorkeus[x][y] = n;
+        maankorkeus[x][y] = korkeus;
     }
     
-    public void setVedenkorkeus(int x, int y, float n) {
+    public void setVedenkorkeus(int x, int y, float korkeus) {
         if (this.onkoUlkopuolella(x, y)) return;
-        vedenkorkeus[x][y] = n;
+        vedenkorkeus[x][y] = korkeus;
     }
     public void lisaaVetta(int x, int y, float maara) {
         setVedenkorkeus(x, y, getVedenkorkeus(x, y) + maara);
