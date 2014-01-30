@@ -20,7 +20,7 @@ public class PaivittajaTest {
 
     @Before
     public void setUp() {
-        testiMaa = new Maasto(200);
+        testiMaa = new Maasto(90);
         paivaTest = new Paivittaja(testiMaa);
     }
 
@@ -32,10 +32,10 @@ public class PaivittajaTest {
 
     @Test
     public void sadeTekeeYmpyran() {
-        paivaTest.sada(100, 100, 30);
+        paivaTest.sada(40, 40, 10);
         for (int i = 0; i < testiMaa.getKoko(); i++) {
             for (int j = 0; j < testiMaa.getKoko(); j++) {
-                if (etaisyys(Math.abs(100 - i), Math.abs(100 - j)) > 30) assertEquals(0f, testiMaa.getVedenkorkeus(i, j), 0.0001);
+                if (etaisyys(Math.abs(40 - i), Math.abs(40 - j)) > 10) assertEquals(0f, testiMaa.getVedenkorkeus(i, j), 0.0001);
             }
         }
     }
