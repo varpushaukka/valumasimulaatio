@@ -55,5 +55,13 @@ public class Paivittaja {
             System.out.println("\n");
         }
     }
+    public void tulostaMaamaailma() {
+        for (int i = 0; i < koko; i++) {
+            for (int j = 0; j < koko; j++) {
+                System.out.print("[" + vesimaa.getMaankorkeus(i, j) + "]");
+            }
+            System.out.println("\n");
+        }
+    }
 
 }

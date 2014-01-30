@@ -70,6 +70,7 @@ public class Maasto {
         if (this.onkoUlkopuolella(x, y)) return;
         vedenkorkeus[x][y] = korkeus;
     }
+    
     public void lisaaVetta(int x, int y, float maara) {
         setVedenkorkeus(x, y, getVedenkorkeus(x, y) + maara);
     }

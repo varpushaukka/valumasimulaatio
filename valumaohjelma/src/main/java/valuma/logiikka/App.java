@@ -35,8 +35,14 @@ public class App
 //        p.sada(9, 2, 4f);
 //        p.tulostaVesimaailma();
 //        System.out.println("");
+        System.out.println("        ----------          ----------          -----------         -----------");
         p.paivita();
-        
+        p.paivita();
+        p.paivita();
+        p.paivita();
+        p.paivita();
         p.tulostaVesimaailma();
-    }
+        System.out.println("        ----------          ----------          -----------         -----------");
+        p.tulostaMaamaailma();
+        }
 }
