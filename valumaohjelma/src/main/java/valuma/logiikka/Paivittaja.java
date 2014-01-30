@@ -18,29 +18,32 @@ public class Paivittaja {
         koko = vesimaa.getKoko();
     }
 
-    public void paivita(int maara) {
-        for (int n = 0; n < maara; n++) {
-            for (int i = 0; i < koko; i++) {
-                for (int j = 0; j < koko; j++) {
-                    if (rand.nextDouble() > 0.75) {
-                        vesimaa.tasaaVaaka(i, j);
-                        vesimaa.tasaaPysty(i, j);
-                    }
-                }
+    public void paivita() {
+        for (int n = 0; n < Math.pow(koko, 3); n++) {
+            int i = rand.nextInt(koko);
+            int j = rand.nextInt(koko);
+            if (rand.nextDouble() > 0.75) {
+                vesimaa.tasaaVaaka(i, j);
+                vesimaa.tasaaVaaka(i, j + 1);
+                vesimaa.tasaaPysty(i, j);
+                vesimaa.tasaaPysty(i + 1, j);
             }
         }
     }
-    
+
     private double etaisyys(int vaskateetti, int viekateetti) {
         return Math.sqrt(Math.pow(vaskateetti, 2) + Math.pow(viekateetti, 2));
     }
 
     public void sada(int x, int y, int sade) {
-        for (int i = x - sade; i < x + sade; i++) {
-            for (int j = y - sade; j < y + sade; j++)
-                if (etaisyys(Math.abs(x - i), Math.abs(y - j)) <= sade) {
-                    vesimaa.lisaaVetta(i, j, 0.1f);
+        for (int n = 0; n < 10; n++) {
+            for (int i = x - sade; i < x + sade; i++) {
+                for (int j = y - sade; j < y + sade; j++) {
+                    if (etaisyys(Math.abs(x - i), Math.abs(y - j)) <= sade && rand.nextDouble() > 0.70) {
+                        vesimaa.lisaaVetta(i, j, 0.1f);
+                    }
                 }
+            }
         }
     }
 
