@@ -19,7 +19,7 @@ public class Paivittaja {
     }
 
     public void paivita() {
-        for (int n = 0; n < Math.pow(koko, 3); n++) {
+        for (int n = 0; n < (koko * koko) * 2; n++) {
             int i = rand.nextInt(koko);
             int j = rand.nextInt(koko);
             if (rand.nextDouble() > 0.75) {
@@ -36,7 +36,7 @@ public class Paivittaja {
     }
 
     public void sada(int x, int y, int sade) {
-        for (int n = 0; n < 10; n++) {
+        for (int n = 0; n < 20; n++) {
             for (int i = x - sade; i < x + sade; i++) {
                 for (int j = y - sade; j < y + sade; j++) {
                     if (etaisyys(Math.abs(x - i), Math.abs(y - j)) <= sade && rand.nextDouble() > 0.70) {
