@@ -14,49 +14,52 @@ import valuma.logiikka.Paivittaja;
 
 public class Kaytli implements Runnable {
 
-    private JFrame frame;
+    private JFrame kehys;
     private Maasto maasto;
     private Paivittaja paivittaja;
-    private JMenuBar menubar;
-    JMenuItem menuItem;
+    private JMenuBar valikko;
+    JMenuItem maastonResetointinappi;
 
     public Kaytli() {
+        alustaMaasto();
+    }
+    
+    public void alustaMaasto() {
         maasto = new Maasto(500);
         paivittaja = new Paivittaja(maasto);
-
     }
 
     @Override
     public void run() {
-        frame = new JFrame("Valumasimulaatio");
-        frame.setPreferredSize(new Dimension(600, 600));
-        frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
-        luoKomponentit(frame.getContentPane());
+        kehys = new JFrame("Valumasimulaatio");
+        kehys.setPreferredSize(new Dimension(600, 600));
+        kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
+        luoKomponentit(kehys.getContentPane());
         
-        frame.pack();
-        frame.setVisible(true);
+        kehys.pack();
+        kehys.setVisible(true);
 
     }
 
     private void luoKomponentit(Container container) {
-        menubar = new JMenuBar();
+        valikko = new JMenuBar();
 
-        JMenu menu = new JMenu("Valikko");
-        menu.setMnemonic(KeyEvent.VK_A);
-//        menu.getAccessibleContext().setAccessibleDescription(
-//        "Asetukset");
-        menuItem = new JMenuItem("Uusi maasto",
+        JMenu valikkonappi = new JMenu("Valikko");
+        valikkonappi.setMnemonic(KeyEvent.VK_A);
+        maastonResetointinappi = new JMenuItem("Uusi maasto",
                          KeyEvent.VK_T);
-        menu.add(menuItem);
-        JPanel alusta = new Maastoikkuna();
-        ActionListener v = new Valikko(alusta);
-        menu.addActionListener(v);
-        menubar.add(menu);
-        frame.setJMenuBar(menubar);
+        valikkonappi.add(maastonResetointinappi);
+        JPanel alusta = new Maastoikkuna(maasto, paivittaja);
+//        alusta.addMouseListener(null);
+        ActionListener v = new Valikko(this);
+        maastonResetointinappi.addActionListener(v);
+        valikko.add(valikkonappi);
+        kehys.setJMenuBar(valikko);
         container.add(alusta);
     }
 
     public JFrame getFrame() {
-        return frame;
+        return kehys;
     }
+    
 }
