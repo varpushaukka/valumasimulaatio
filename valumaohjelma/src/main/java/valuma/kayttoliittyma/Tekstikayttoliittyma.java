@@ -6,6 +6,7 @@
 
 package valuma.kayttoliittyma;
 
+import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
 
 /**
@@ -14,9 +15,18 @@ import valuma.logiikka.Paivittaja;
  */
 public class Tekstikayttoliittyma {
     private Paivittaja maailmanluoja;
-
+    private Maasto pikkumaa;
+    
     public Tekstikayttoliittyma() {
-//        maailmanluoja = new Paivittaja(20);
+        
+    }
+    
+    public void run() {
+//        String komento;
+//        while (!komento.equals("")) {
+//            komento = 
+            
+//        }
     }
     
     

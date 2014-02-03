@@ -1,8 +1,34 @@
 Tuntikirjanpito:
 
-(huomioitu myös hylkäämääni aiheeseen kulunut aika)
-- githubin ja netbeansin asetusten konfaus 2h + 30min 
-- aiheen miettiminen ja kirjoittaminen 2,5h
-- logiikkaluokan koodaus 3h + 4h
-- otm-kurssin asioiden kertaus ja opettelu 1h
-- testien koodaus 1h + 2h + 2h
+- githubin ja netbeansin asetusten konfaus
+23.1.2014: 2h
+29.1.2014: 1h
+- aiheen miettiminen ja kirjoittaminen
+20-23.1.2014: 2h 
+- logiikkaluokan koodaus
+24.1.2014: 3h
+25.1.2014: 0,5h
+27.1.2014: 4h
+28.1.2014: 1h
+29.1.2014: 4h
+30.1.2014: 2h
+- Käyttöliittymäluokkien koodaus
+2.2.2014: 2h
+- testien koodaus
+24.1.2014: 2h
+25.1.2014: 1h
+27.1.2014: 3h
+28.1.2014: 1h
+29.1.2014: 1h
+30.1.2014: 1h
+- dokumentointi
+24.1.2014: 1h
+30.1.2014: 1h
+3.2.2014: 1h
+- otm-kurssin asioiden kertaus ja opettelu
+24.1.2014: 1h
+30.1.2014: 0,5h
+- Javan kirjastoihin tutustuminen
+27.1.2014: 0,5h (assert)
+1.2.2014: 1,5h (swing)
+

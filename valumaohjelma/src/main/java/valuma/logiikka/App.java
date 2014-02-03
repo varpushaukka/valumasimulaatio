@@ -1,7 +1,7 @@
 package valuma.logiikka;
 
 /**
- * Hello world!
+ * Tässä tiedostossa on kokeilusotkua
  *
  */
 public class App 
@@ -37,12 +37,9 @@ public class App
 //        System.out.println("");
         System.out.println("        ----------          ----------          -----------         -----------");
         p.paivita();
-        p.paivita();
-        p.paivita();
-        p.paivita();
-        p.paivita();
         p.tulostaVesimaailma();
         System.out.println("        ----------          ----------          -----------         -----------");
         p.tulostaMaamaailma();
+        
         }
 }

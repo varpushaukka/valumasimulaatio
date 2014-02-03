@@ -19,14 +19,14 @@ public class Paivittaja {
     }
 
     public void paivita() {
-        for (int n = 0; n < (koko * koko) * 2; n++) {
-            int i = rand.nextInt(koko);
-            int j = rand.nextInt(koko);
+        for (int i = 0; i < (koko * koko) * 2; i++) {
+            int x = rand.nextInt(koko);
+            int y = rand.nextInt(koko);
             if (rand.nextDouble() > 0.75) {
-                vesimaa.tasaaVaaka(i, j);
-                vesimaa.tasaaVaaka(i, j + 1);
-                vesimaa.tasaaPysty(i, j);
-                vesimaa.tasaaPysty(i + 1, j);
+                vesimaa.tasaaVaaka(x, y);
+                vesimaa.tasaaVaaka(x, y + 1);
+                vesimaa.tasaaPysty(x, y);
+                vesimaa.tasaaPysty(x + 1, y);
             }
         }
     }
