@@ -24,6 +24,7 @@ public class Valikko implements ActionListener{
     @Override
     public void actionPerformed(ActionEvent ae) {
         kali.alustaMaasto();
+        System.out.println("Luotu uusi maasto");
     }
     
 }
