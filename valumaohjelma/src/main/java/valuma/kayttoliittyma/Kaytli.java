@@ -20,20 +20,27 @@ public class Kaytli implements Runnable {
     private Paivittaja paivittaja;
     private JMenuBar valikko;
     JMenuItem maastonResetointinappi;
+    private int ruutukoko;
 
     public Kaytli() {
         alustaMaasto();
+        ruutukoko = 700;
     }
     
     public void alustaMaasto() {
-        maasto = new Maasto(500);
+        maasto = new Maasto(150);
         paivittaja = new Paivittaja(maasto);
     }
 
+    public int getRuutukoko() {
+        return ruutukoko;
+    }
+
+    
     @Override
     public void run() {
         kehys = new JFrame("Valumasimulaatio");
-        kehys.setPreferredSize(new Dimension(600, 600));
+        kehys.setPreferredSize(new Dimension(ruutukoko, ruutukoko));
         kehys.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
         luoKomponentit(kehys.getContentPane());
         
@@ -51,9 +58,7 @@ public class Kaytli implements Runnable {
                          KeyEvent.VK_T);
         valikkonappi.add(maastonResetointinappi);
         JPanel alusta = new Maastoikkuna(maasto, paivittaja);
-        MouseListener hk = new hiirenkuuntelija(paivittaja);
-        alusta.addMouseListener(hk);
-        ActionListener v = new Valikko(this);
+        ActionListener v = new Valikkokuuntelija(this);
         maastonResetointinappi.addActionListener(v);
         valikko.add(valikkonappi);
         kehys.setJMenuBar(valikko);

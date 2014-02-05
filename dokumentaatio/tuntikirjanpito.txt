@@ -15,6 +15,7 @@ Tuntikirjanpito:
 - Käyttöliittymäluokkien koodaus
 2.2.2014: 2h
 3.2.2014: 2h
+4.2.2014: 2h
 - testien koodaus
 24.1.2014: 2h
 25.1.2014: 1h
@@ -32,4 +33,5 @@ Tuntikirjanpito:
 - Javan kirjastoihin tutustuminen
 27.1.2014: 0,5h (assert)
 1.2.2014: 1,5h (swing)
+4.2.2014: 0,5h (MouseListener)
 

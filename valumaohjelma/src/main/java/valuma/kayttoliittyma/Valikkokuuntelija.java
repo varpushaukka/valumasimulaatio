@@ -10,11 +10,11 @@ import java.awt.event.ActionListener;
  *
  * @author varpushaukka
  */
-public class Valikko implements ActionListener{
+public class Valikkokuuntelija implements ActionListener{
     private Kaytli kali;
     
 
-    public Valikko(Kaytli kali) {
+    public Valikkokuuntelija(Kaytli kali) {
         this.kali = kali;
         
     }
