@@ -15,7 +15,7 @@ public class Maasto {
     
 /**
  * Alustaa korkeusmatriisit
- * @param koko            
+ * @param koko            maaston leveys ja pituus
  */
     public Maasto(int koko) {
         this.koko = koko;
