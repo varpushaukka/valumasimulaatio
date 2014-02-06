@@ -4,7 +4,7 @@ package valuma.logiikka;
 import java.util.Random;
 
 /**
- *
+ * Luo maaston ja vedet maastolle, sekä laskee vesien valumista
  * @author varpushaukka
  */
 public class Maasto {

@@ -3,7 +3,8 @@ package valuma.logiikka;
 import java.util.Random;
 
 /**
- *
+ * Päivittää maastoa käyttäen maaston valumafunktioita.
+ * lisää vettä kohtiin joissa sataa
  * @author hennaruo
  */
 public class Paivittaja {
@@ -48,31 +49,19 @@ public class Paivittaja {
     }
 
     public void sada(int x, int y, int sade) {
-            for (int i = x - sade; i < x + sade; i++) {
-                for (int j = y - sade; j < y + sade; j++) {
-                    if (etaisyys(Math.abs(x - i), Math.abs(y - j)) <= sade && rand.nextDouble() > 0.80) {
-                        vesimaa.lisaaVetta(i, j, 0.03f);
-                    }
-                }
-        }
-    }
-
-    public void tulostaVesimaailma() {
-        for (int i = 0; i < koko; i++) {
-            for (int j = 0; j < koko; j++) {
-                System.out.print("[" + vesimaa.getVedenkorkeus(i, j) + "]");
+//            for (int i = x - sade; i < x + sade; i++) {
+//                for (int j = y - sade; j < y + sade; j++) {
+        for (int ind = 0; ind < vesimaa.getKoko(); ind++) {
+            int i = rand.nextInt(vesimaa.getKoko());
+            int j = rand.nextInt(vesimaa.getKoko());
+            if (etaisyys(Math.abs(x - i), Math.abs(y - j)) <= sade) {
+                vesimaa.lisaaVetta(i, j, 0.1f);
             }
-            System.out.println("\n");
+//                }
         }
     }
     
-    public void tulostaMaamaailma() {
-        for (int i = 0; i < koko; i++) {
-            for (int j = 0; j < koko; j++) {
-                System.out.print("[" + vesimaa.getMaankorkeus(i, j) + "]");
-            }
-            System.out.println("\n");
-        }
-    }
+  
+ 
 
 }

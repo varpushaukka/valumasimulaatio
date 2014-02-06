@@ -1,7 +1,7 @@
 package valuma.kayttoliittyma;
 
 /**
- *
+ * Luo maastoikkunan ja valikot
  * @author varpushaukka
  */
 import java.awt.Container;
@@ -56,7 +56,7 @@ public class Kaytli implements Runnable {
         maastonResetointinappi = new JMenuItem("Uusi maasto",
                          KeyEvent.VK_T);
         valikkonappi.add(maastonResetointinappi);
-        JPanel alusta = new Maastoikkuna(maasto, paivittaja, this);
+        JPanel alusta = new Maastoikkuna(maasto, paivittaja);
         ActionListener v = new Valikkokuuntelija(alusta);
         maastonResetointinappi.addActionListener(v);
         valikko.add(valikkonappi);

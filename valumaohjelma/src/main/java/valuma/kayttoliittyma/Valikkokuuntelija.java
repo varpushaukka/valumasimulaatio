@@ -8,7 +8,7 @@ import javax.swing.JPanel;
 
 
 /**
- *
+ * 
  * @author varpushaukka
  */
 public class Valikkokuuntelija implements ActionListener{

@@ -20,7 +20,23 @@ public class Tekstikayttoliittyma {
     public Tekstikayttoliittyma() {
         
     }
+       public void tulostaVesimaailma() {
+        for (int i = 0; i < pikkumaa.getKoko(); i++) {
+            for (int j = 0; j < pikkumaa.getKoko(); j++) {
+                System.out.print("[" + pikkumaa.getVedenkorkeus(i, j) + "]");
+            }
+            System.out.println("\n");
+        }
+    }
     
+    public void tulostaMaamaailma() {
+        for (int i = 0; i < pikkumaa.getKoko(); i++) {
+            for (int j = 0; j < pikkumaa.getKoko(); j++) {
+                System.out.print("[" + pikkumaa.getMaankorkeus(i, j) + "]");
+            }
+            System.out.println("\n");
+        }
+    }
     public void run() {
 //        String komento;
 //        while (!komento.equals("")) {

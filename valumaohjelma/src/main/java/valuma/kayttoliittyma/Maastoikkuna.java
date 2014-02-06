@@ -10,7 +10,7 @@ import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
 
 /**
- *
+ * Luo maaston grafiikat
  * @author varpushaukka
  */
 public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionListener {
@@ -23,22 +23,23 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     private double korkeusskaalaus = 10; 
     private int hiirenZmaastossa = -1;
     private int hiirenXmaastossa = -1;
-    private Kaytli kali;
+
     
-    public Maastoikkuna(Maasto maa, Paivittaja paivittaja, Kaytli kali) {
+    public Maastoikkuna(Maasto maa, Paivittaja paivittaja) {
         this.maa = maa;
         this.paivittaja = paivittaja;
-        this.kali = kali;
+  
         super.setBackground(Color.BLACK);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
     }
+    //TODO *** pitää miettiä miten tämä toimii ***
     public void alustaMaasto() {
-        kali.alustaMaasto();
+    
         this.repaint();
     }
     
-    
+    //TODO *** tämän metodin voisin pilkkoa pienempiin osiin ***
     @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
@@ -56,7 +57,8 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
                     graphics.setColor(ruskea);
                     graphics.drawLine(rx, ry,
                             rx, (int) (ry - maa.getMaankorkeus(x, z) * korkeusskaalaus));
-                    graphics.setColor(Color.BLUE);
+                    if (maa.getVedenkorkeus(x, z) > 0 ) graphics.setColor(Color.BLUE);
+                    else graphics.setColor(Color.GREEN);
                     graphics.drawLine(rx, (int) (ry - maa.getMaankorkeus(x, z) * korkeusskaalaus),
                             rx, (int) (ry - maa.getYhteiskorkeus(x, z) * korkeusskaalaus));
                 }

@@ -5,7 +5,7 @@ Tuntikirjanpito:
 29.1.2014: 1h
 - aiheen miettiminen ja kirjoittaminen
 20-23.1.2014: 2h 
-- logiikkaluokan koodaus
+- logiikkaluokkien koodaus
 24.1.2014: 3h
 25.1.2014: 0,5h
 27.1.2014: 4h
@@ -16,6 +16,8 @@ Tuntikirjanpito:
 2.2.2014: 2h
 3.2.2014: 2h
 4.2.2014: 2h
+5.2.2014: 3h
+6.2.2014: 1h
 - testien koodaus
 24.1.2014: 2h
 25.1.2014: 1h
@@ -27,6 +29,7 @@ Tuntikirjanpito:
 24.1.2014: 1h
 30.1.2014: 1h
 3.2.2014: 1h
+6.2.2014: 2h
 - otm-kurssin asioiden kertaus ja opettelu
 24.1.2014: 1h
 30.1.2014: 0,5h

@@ -4,7 +4,7 @@ package valuma.kayttoliittyma;
 import javax.swing.SwingUtilities;
 
 /**
- *
+ * Valumasimulaatio -projektin main-suoritusluokka
  * @author varpushaukka
  */
 public class Paaohjelma {
