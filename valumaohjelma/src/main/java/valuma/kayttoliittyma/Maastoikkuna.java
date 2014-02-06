@@ -1,7 +1,3 @@
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
 package valuma.kayttoliittyma;
 
 import java.awt.Color;
@@ -27,23 +23,28 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     private double korkeusskaalaus = 10; 
     private int hiirenZmaastossa = -1;
     private int hiirenXmaastossa = -1;
+    private Kaytli kali;
     
-    public Maastoikkuna(Maasto maa, Paivittaja paivittaja) {
+    public Maastoikkuna(Maasto maa, Paivittaja paivittaja, Kaytli kali) {
         this.maa = maa;
         this.paivittaja = paivittaja;
-
+        this.kali = kali;
         super.setBackground(Color.BLACK);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
+    }
+    public void alustaMaasto() {
+        kali.alustaMaasto();
+        this.repaint();
     }
     
     
     @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
-        // kokeilu
         lahtox = this.getWidth() / 2;
         lahtoy = this.getHeight() / 4;
+        Color ruskea = new Color(120, 60, 0);
         for (int x = 0; x < maa.getKoko(); x++) {
             for (int z = 0; z < maa.getKoko(); z++) {
                 int rx = (int) (lahtox + xskaalaus * x - zskaalaus * z);
@@ -52,7 +53,7 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
                     graphics.setColor(Color.WHITE);
                     graphics.drawLine(rx, ry, rx, 0);
                 } else {
-                    graphics.setColor(new Color(120, 60, 0));
+                    graphics.setColor(ruskea);
                     graphics.drawLine(rx, ry,
                             rx, (int) (ry - maa.getMaankorkeus(x, z) * korkeusskaalaus));
                     graphics.setColor(Color.BLUE);
@@ -75,7 +76,7 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     public void mouseClicked(MouseEvent me) {
         paivittaja.asetaSateenPaikka(maastoXksi(me.getX(), me.getY()), maastoZksi(me.getX(), me.getY()));
         System.out.println("vettä sataa pisteeseen " + maastoXksi(me.getX(), me.getY()) + ", " + maastoZksi(me.getX(), me.getY()));
-        for (int i = 0; i < 20; i++ ) {
+        for (int i = 0; i < 200; i++ ) {
             paivittaja.paivita();
         }
         this.repaint();

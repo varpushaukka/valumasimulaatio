@@ -8,7 +8,6 @@ import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
-import java.awt.event.MouseListener;
 import javax.swing.*;
 import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
@@ -57,8 +56,8 @@ public class Kaytli implements Runnable {
         maastonResetointinappi = new JMenuItem("Uusi maasto",
                          KeyEvent.VK_T);
         valikkonappi.add(maastonResetointinappi);
-        JPanel alusta = new Maastoikkuna(maasto, paivittaja);
-        ActionListener v = new Valikkokuuntelija(this);
+        JPanel alusta = new Maastoikkuna(maasto, paivittaja, this);
+        ActionListener v = new Valikkokuuntelija(alusta);
         maastonResetointinappi.addActionListener(v);
         valikko.add(valikkonappi);
         kehys.setJMenuBar(valikko);

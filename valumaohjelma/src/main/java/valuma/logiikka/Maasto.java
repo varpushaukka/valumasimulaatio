@@ -12,7 +12,11 @@ public class Maasto {
     private float[][] vedenkorkeus;
     private int koko;
     private Random rnd;
-
+    
+/**
+ * Alustaa korkeusmatriisit
+ * @param koko            
+ */
     public Maasto(int koko) {
         this.koko = koko;
         maankorkeus = new float[koko][koko];
@@ -22,6 +26,7 @@ public class Maasto {
         this.asetaVesi();
     }
     
+
     public void asetaMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
@@ -37,7 +42,14 @@ public class Maasto {
             }
         }
     }    
-    
+
+    /**
+     * tarkistaa onko piste maastomatriisin ulkopuolella
+     * 
+     * @param x x-koordinaatti
+     * @param y y-koordinaatti
+     * @return true jos piste on ulkopuolella ja muuten false
+     */
     public boolean onkoUlkopuolella(int x, int y) {
         if (x < 0 || x >= koko) return true;
         return y < 0 || y >= koko;
@@ -103,14 +115,21 @@ public class Maasto {
         if (eka > 0) siirraAinetta(x1, y1, x2, y2, eka);
         if (toka > 0) siirraAinetta(x2, y2, x1, y1, toka);
     }
-    
+    /**
+     * tasaa kahden päällekkäisen solun välillä vedenpinnan mahdollisimman tasaiseksi
+     * @param x
+     * @param y 
+     */
     public void tasaaPysty(int x, int y) {
         tasaa(x, y, x, y + 1);
     }
+    /**
+     * tasaa kahden vierekkäisen solun välillä vedenpinnan mahdollisimman tasaiseksi
+     * @param x
+     * @param y 
+     */
     public void tasaaVaaka(int x, int y) {
         tasaa(x, y, x + 1, y);
     }
 
 }
-
-//maasto, päivittäjä ja maastoikkuna 
