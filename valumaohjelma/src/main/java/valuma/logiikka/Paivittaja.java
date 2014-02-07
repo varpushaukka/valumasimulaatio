@@ -23,7 +23,7 @@ public class Paivittaja {
 
     public void paivita() {
         valuta();
-        sada(sateenXpaikka, sateenYpaikka, 20);
+        sada(sateenXpaikka, sateenYpaikka, 10);
     }
 
     public void valuta() {
@@ -49,15 +49,12 @@ public class Paivittaja {
     }
 
     public void sada(int x, int y, int sade) {
-//            for (int i = x - sade; i < x + sade; i++) {
-//                for (int j = y - sade; j < y + sade; j++) {
         for (int ind = 0; ind < vesimaa.getKoko(); ind++) {
             int i = rand.nextInt(vesimaa.getKoko());
             int j = rand.nextInt(vesimaa.getKoko());
             if (etaisyys(Math.abs(x - i), Math.abs(y - j)) <= sade) {
-                vesimaa.lisaaVetta(i, j, 0.1f);
+                vesimaa.lisaaVetta(i, j, 2f);
             }
-//                }
         }
     }
     

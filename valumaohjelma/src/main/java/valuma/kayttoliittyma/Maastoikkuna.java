@@ -2,10 +2,13 @@ package valuma.kayttoliittyma;
 
 import java.awt.Color;
 import java.awt.Graphics;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.awt.event.MouseMotionListener;
 import javax.swing.JPanel;
+import javax.swing.Timer;
 import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
 
@@ -23,16 +26,27 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     private double korkeusskaalaus = 10; 
     private int hiirenZmaastossa = -1;
     private int hiirenXmaastossa = -1;
+    private Timer ajastin;
 
     
-    public Maastoikkuna(Maasto maa, Paivittaja paivittaja) {
+    public Maastoikkuna(Maasto maa, final Paivittaja paivittaja) {
         this.maa = maa;
         this.paivittaja = paivittaja;
-  
+        ActionListener ajastinkuuntelija = new ActionListener() {
+
+            @Override
+            public void actionPerformed(ActionEvent ae) {
+                paivittaja.paivita();
+                repaint();
+            }
+        };
+        ajastin = new Timer(100, ajastinkuuntelija);
+        ajastin.start();
         super.setBackground(Color.BLACK);
         this.addMouseListener(this);
         this.addMouseMotionListener(this);
     }
+    
     //TODO *** pitää miettiä miten tämä toimii ***
     public void alustaMaasto() {
     
@@ -44,7 +58,7 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);
         lahtox = this.getWidth() / 2;
-        lahtoy = this.getHeight() / 4;
+        lahtoy = this.getHeight() / 2;
         Color ruskea = new Color(120, 60, 0);
         for (int x = 0; x < maa.getKoko(); x++) {
             for (int z = 0; z < maa.getKoko(); z++) {
@@ -78,10 +92,7 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     public void mouseClicked(MouseEvent me) {
         paivittaja.asetaSateenPaikka(maastoXksi(me.getX(), me.getY()), maastoZksi(me.getX(), me.getY()));
         System.out.println("vettä sataa pisteeseen " + maastoXksi(me.getX(), me.getY()) + ", " + maastoZksi(me.getX(), me.getY()));
-        for (int i = 0; i < 200; i++ ) {
-            paivittaja.paivita();
-        }
-        this.repaint();
+       
         
     }
 

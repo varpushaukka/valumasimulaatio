@@ -30,7 +30,10 @@ public class Maasto {
     public void asetaMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-                setMaankorkeus(i, j, 10 + rnd.nextFloat());
+////                setMaankorkeus(i, j, 10 + rnd.nextFloat());
+                setMaankorkeus(i, j, 10 + (koko - j) / 15 + (koko - i) / 15);
+//                setMaankorkeus(i, j, 11);
+
             }
         }
     }
