@@ -31,8 +31,8 @@ public class Maasto {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
 ////                setMaankorkeus(i, j, 10 + rnd.nextFloat());
-                setMaankorkeus(i, j, 10 + (koko - j) / 15 + (koko - i) / 15);
-//                setMaankorkeus(i, j, 11);
+//                setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
+                setMaankorkeus(i, j, 11);
 
             }
         }
@@ -106,17 +106,32 @@ public class Maasto {
         lisaaMaata(x, y, muutos * 0.1f);
     }
     
+    public void siirraMaata(int x1, int y1, int x2, int y2, float maara) {
+        lisaaMaata(x2, y2, maara);
+        lisaaMaata(x1, y1, -maara);
+    }
+    
+//    public void valu(int x1, int y1, int x2, int y2) {
+//        
+//    }
+    
     public void siirraAinetta(int x1, int y1, int x2, int y2, float maara) {
         lisaaAinetta(x2, y2, maara);
         lisaaAinetta(x1, y1, -maara);
     }
     
-    public void tasaa(int x1, int y1, int x2, int y2) {
+    public void tasaa(int x1, int y1, int x2, int y2, int vx1, int vy1, int vx2, int vy2) {
         float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
         float eka = paljonkoLuovuttaaAinetta(x1, y1, keskiarvo);
         float toka = paljonkoLuovuttaaAinetta(x2, y2, keskiarvo);
-        if (eka > 0) siirraAinetta(x1, y1, x2, y2, eka);
-        if (toka > 0) siirraAinetta(x2, y2, x1, y1, toka);
+        if (eka > 0) {
+            if (getMaankorkeus(vx1, vy1) > getYhteiskorkeus(x1, y1)) siirraMaata(vx1, vy1, x1, y1, eka / 10);
+            siirraAinetta(x1, y1, x2, y2, eka);
+        }
+        if (toka > 0) {
+            if (getMaankorkeus(vx2, vy2) > getYhteiskorkeus(x2, y2)) siirraMaata(vx2, vy2, x2, y2, toka / 10);
+            siirraAinetta(x2, y2, x1, y1, toka);
+        }
     }
     /**
      * tasaa kahden päällekkäisen solun välillä vedenpinnan mahdollisimman tasaiseksi
@@ -124,7 +139,7 @@ public class Maasto {
      * @param y 
      */
     public void tasaaPysty(int x, int y) {
-        tasaa(x, y, x, y + 1);
+        tasaa(x, y, x, y + 1, x - 1, y, x + 1, y + 1);
     }
     /**
      * tasaa kahden vierekkäisen solun välillä vedenpinnan mahdollisimman tasaiseksi
@@ -132,7 +147,7 @@ public class Maasto {
      * @param y 
      */
     public void tasaaVaaka(int x, int y) {
-        tasaa(x, y, x + 1, y);
+        tasaa(x, y, x + 1, y, x, y - 1, x + 1, y + 1);
     }
 
 }
