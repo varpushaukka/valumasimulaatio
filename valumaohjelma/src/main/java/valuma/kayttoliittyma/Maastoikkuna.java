@@ -24,8 +24,8 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     private double xskaalaus = 1.5;
     private double zskaalaus = 1.7; 
     private double korkeusskaalaus = 10; 
-    private int hiirenZmaastossa = -1;
-    private int hiirenXmaastossa = -1;
+    private int hiirenZmaastossa = -100;
+    private int hiirenXmaastossa = -100;
     private Timer ajastin;
 
     

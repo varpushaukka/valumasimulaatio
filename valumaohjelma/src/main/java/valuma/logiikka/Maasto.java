@@ -30,7 +30,7 @@ public class Maasto {
     public void asetaMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-////                setMaankorkeus(i, j, 10 + rnd.nextFloat());
+//                setMaankorkeus(i, j, 10 + rnd.nextFloat());
                 setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
 //                setMaankorkeus(i, j, 11);
 
@@ -111,35 +111,53 @@ public class Maasto {
         lisaaMaata(x1, y1, -maara);
     }
     
-//    public void valu(int x1, int y1, int x2, int y2) {
-//        
-//    }
-    
+    public void siirraVetta(int x1, int y1, int x2, int y2, float maara) {
+        lisaaVetta(x2, y2, maara);
+        lisaaVetta(x1, y1, -maara);
+    }
+      
     public void siirraAinetta(int x1, int y1, int x2, int y2, float maara) {
-        lisaaAinetta(x2, y2, maara);
-        lisaaAinetta(x1, y1, -maara);
+        siirraMaata(x1, y1, x2, y2, maara * 0.1f);
+        siirraVetta(x1, y1, x2, y2, maara * 0.9f);
     }
     
-    public void tasaa(int x1, int y1, int x2, int y2, int vx1, int vy1, int vx2, int vy2) {
+    public void valuta(int x1, int y1, int x2, int y2, int vx1, int vy1, int vx2, int vy2) {
+        // 
+        float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
+        float virtaus = (getYhteiskorkeus(x1, y1) - getYhteiskorkeus(x2, y2)) / 2;
+        if (virtaus < 0) return;
+        if (virtaus > getVedenkorkeus(x1, y1)) virtaus = getVedenkorkeus(x1, y1);
+        float lahtevanMaanOsuus = 0.5f * virtaus / (0.5f + virtaus);
+        float lahtevanMaanMaara = virtaus * lahtevanMaanOsuus;
+        float lahtevanVedenMaara = virtaus - lahtevanMaanMaara;
+        siirraMaata(x1, y1, x2, y2, lahtevanMaanMaara * 0.7f);
+        siirraMaata(vx1, vy1, x2, y2, lahtevanMaanMaara * 0.15f);
+        siirraMaata(vx2, vy2, x2, y2, lahtevanMaanMaara * 0.15f);
+        siirraVetta(x1, y1, x2, y2, lahtevanVedenMaara);
+        
+        
+    }
+
+    public void tasaa(int x1, int y1, int x2, int y2) {
         float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
         float eka = paljonkoLuovuttaaAinetta(x1, y1, keskiarvo);
         float toka = paljonkoLuovuttaaAinetta(x2, y2, keskiarvo);
         if (eka > 0) {
-            if (getMaankorkeus(vx1, vy1) > getYhteiskorkeus(x1, y1)) siirraMaata(vx1, vy1, x1, y1, eka / 10);
             siirraAinetta(x1, y1, x2, y2, eka);
         }
         if (toka > 0) {
-            if (getMaankorkeus(vx2, vy2) > getYhteiskorkeus(x2, y2)) siirraMaata(vx2, vy2, x2, y2, toka / 10);
             siirraAinetta(x2, y2, x1, y1, toka);
         }
     }
+    
     /**
      * tasaa kahden päällekkäisen solun välillä vedenpinnan mahdollisimman tasaiseksi
      * @param x
      * @param y 
      */
     public void tasaaPysty(int x, int y) {
-        tasaa(x, y, x, y + 1, x - 1, y, x + 1, y + 1);
+        valuta(x, y, x, y +1, x - 1, y, x + 1, y);
+//        tasaa(x, y, x, y + 1);
     }
     /**
      * tasaa kahden vierekkäisen solun välillä vedenpinnan mahdollisimman tasaiseksi
@@ -147,7 +165,8 @@ public class Maasto {
      * @param y 
      */
     public void tasaaVaaka(int x, int y) {
-        tasaa(x, y, x + 1, y, x, y - 1, x + 1, y + 1);
+        valuta(x, y, x + 1, y, x, y -1, x, y + 1);
+//        tasaa(x, y, x + 1, y);
     }
 
 }
