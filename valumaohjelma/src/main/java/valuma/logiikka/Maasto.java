@@ -22,17 +22,17 @@ public class Maasto {
         maankorkeus = new float[koko][koko];
         vedenkorkeus = new float[koko][koko];
         rnd = new Random();
-        this.asetaMaasto();
+        this.asetaMaasto(1);
         this.asetaVesi();
     }
     
 
-    public void asetaMaasto() {
+    public void asetaMaasto(int tyyppi) {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-//                setMaankorkeus(i, j, 10 + rnd.nextFloat());
-                setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
-//                setMaankorkeus(i, j, 11);
+                if (tyyppi == 0) setMaankorkeus(i, j, 10 + rnd.nextFloat());
+                if (tyyppi == 1) setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
+                else setMaankorkeus(i, j, 11);
 
             }
         }
@@ -130,9 +130,9 @@ public class Maasto {
         float lahtevanMaanOsuus = 0.5f * virtaus / (0.5f + virtaus);
         float lahtevanMaanMaara = virtaus * lahtevanMaanOsuus;
         float lahtevanVedenMaara = virtaus - lahtevanMaanMaara;
-        siirraMaata(x1, y1, x2, y2, lahtevanMaanMaara * 0.7f);
-        siirraMaata(vx1, vy1, x2, y2, lahtevanMaanMaara * 0.15f);
-        siirraMaata(vx2, vy2, x2, y2, lahtevanMaanMaara * 0.15f);
+        siirraMaata(x1, y1, x2, y2, lahtevanMaanMaara * 0.5f);
+        siirraMaata(vx1, vy1, x2, y2, lahtevanMaanMaara * 0.25f);
+        siirraMaata(vx2, vy2, x2, y2, lahtevanMaanMaara * 0.25f);
         siirraVetta(x1, y1, x2, y2, lahtevanVedenMaara);
         
         

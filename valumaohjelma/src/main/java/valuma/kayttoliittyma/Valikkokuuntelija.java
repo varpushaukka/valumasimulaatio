@@ -12,10 +12,10 @@ import javax.swing.JPanel;
  * @author varpushaukka
  */
 public class Valikkokuuntelija implements ActionListener{
-    private JPanel ikkuna;
+    private Maastoikkuna ikkuna;
     
 
-    public Valikkokuuntelija(JPanel ikkuna) {
+    public Valikkokuuntelija(Maastoikkuna ikkuna) {
         this.ikkuna = ikkuna;
         
     }
@@ -24,7 +24,7 @@ public class Valikkokuuntelija implements ActionListener{
     
     @Override
     public void actionPerformed(ActionEvent ae) {
-  //      ikkuna.alustaMaasto();
+        ikkuna.alustaMaasto();
         System.out.println("Luotu uusi maasto");
     }
     

@@ -49,7 +49,7 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     
     //TODO *** pitää miettiä miten tämä toimii ***
     public void alustaMaasto() {
-    
+        maa.asetaMaasto(0);
         this.repaint();
     }
     
