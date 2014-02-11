@@ -11,6 +11,7 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
+import valuma.logiikka.Porrasmaasto;
 
 /**
  * Luo maaston grafiikat
@@ -24,22 +25,15 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     private double xskaalaus = 1.5;
     private double zskaalaus = 1.7; 
     private double korkeusskaalaus = 10; 
-    private int hiirenZmaastossa = 1000;
-    private int hiirenXmaastossa = 1000;
+    private int hiirenZmaastossa = -1;
+    private int hiirenXmaastossa = -1;
     private Timer ajastin;
 
     
-    public Maastoikkuna(Maasto maa, final Paivittaja paivittaja) {
+    public Maastoikkuna(Maasto maa, Paivittaja paivittaja) {
         this.maa = maa;
         this.paivittaja = paivittaja;
-        ActionListener ajastinkuuntelija = new ActionListener() {
-
-            @Override
-            public void actionPerformed(ActionEvent ae) {
-                paivittaja.paivita();
-                repaint();
-            }
-        };
+        ActionListener ajastinkuuntelija = new Ajastinkuuntelija(this.paivittaja, this);
         ajastin = new Timer(100, ajastinkuuntelija);
         ajastin.start();
         super.setBackground(Color.BLACK);
@@ -49,6 +43,8 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     
     //TODO *** pitää miettiä miten tämä toimii ***
     public void alustaMaasto() {
+        maa = new Porrasmaasto(150);
+        paivittaja = new Paivittaja(maa);
         maa.asetaMaasto();
         maa.asetaVesi();
         this.repaint();
@@ -125,4 +121,19 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         this.repaint();
     }
     
+}
+class Ajastinkuuntelija implements ActionListener {
+    private Paivittaja paiv;
+    private Maastoikkuna ikk;
+
+    public Ajastinkuuntelija(Paivittaja paiv, Maastoikkuna ikk) {
+        this.paiv = paiv;
+        this.ikk = ikk;
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent ae) {
+        paiv.paivita();
+        ikk.repaint();
+    }
 }

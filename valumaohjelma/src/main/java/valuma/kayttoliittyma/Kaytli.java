@@ -6,11 +6,12 @@ package valuma.kayttoliittyma;
  */
 import java.awt.Container;
 import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
 import javax.swing.*;
 import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
+import valuma.logiikka.Porrasmaasto;
 
 public class Kaytli implements Runnable {
 
@@ -20,14 +21,16 @@ public class Kaytli implements Runnable {
     private JMenuBar valikko;
     JMenuItem portaat;
     private int ruutukoko;
+    private int maastonKoko;
 
     public Kaytli() {
-        alustaMaasto();
         ruutukoko = 700;
+        maastonKoko = 150;
+        alustaMaasto();
     }
     
     public void alustaMaasto() {
-        maasto = new Maasto(150);
+        maasto = new Maasto(maastonKoko);
         paivittaja = new Paivittaja(maasto);
     }
 
@@ -65,7 +68,7 @@ public class Kaytli implements Runnable {
         Maastoikkuna alusta = new Maastoikkuna(maasto, paivittaja);
         ActionListener porrask = new Porraskuuntelija(alusta);
         portaat.addActionListener(porrask);
-//        random.addActionListener();
+        random.addActionListener(new Randomkuuntelija(alusta));
         valikko.add(valikkonappi);
         kehys.setJMenuBar(valikko);
         container.add(alusta);
@@ -76,3 +79,19 @@ public class Kaytli implements Runnable {
     }
     
 }
+class Randomkuuntelija implements ActionListener {
+    private Maasto maa;
+    private Maastoikkuna ikkuna;
+
+    public Randomkuuntelija(Maastoikkuna ikkuna) {
+        this.ikkuna = ikkuna;
+    }
+    
+    @Override
+    public void actionPerformed(ActionEvent e) {
+        
+    }
+    
+}
+
+
