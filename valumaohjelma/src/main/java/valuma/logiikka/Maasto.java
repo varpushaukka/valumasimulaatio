@@ -22,17 +22,17 @@ public class Maasto {
         maankorkeus = new float[koko][koko];
         vedenkorkeus = new float[koko][koko];
         rnd = new Random();
-        this.asetaMaasto(1);
+        this.asetaMaasto();
         this.asetaVesi();
     }
     
 
-    public void asetaMaasto(int tyyppi) {
+    public void asetaMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-                if (tyyppi == 0) setMaankorkeus(i, j, 10 + rnd.nextFloat());
-                if (tyyppi == 1) setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
-                else setMaankorkeus(i, j, 11);
+//              setMaankorkeus(i, j, 10 + rnd.nextFloat());
+                setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
+//                setMaankorkeus(i, j, 11);
 
             }
         }

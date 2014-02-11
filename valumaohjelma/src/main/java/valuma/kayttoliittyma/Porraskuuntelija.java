@@ -11,11 +11,11 @@ import javax.swing.JPanel;
  * 
  * @author varpushaukka
  */
-public class Valikkokuuntelija implements ActionListener{
+public class Porraskuuntelija implements ActionListener{
     private Maastoikkuna ikkuna;
     
 
-    public Valikkokuuntelija(Maastoikkuna ikkuna) {
+    public Porraskuuntelija(Maastoikkuna ikkuna) {
         this.ikkuna = ikkuna;
         
     }

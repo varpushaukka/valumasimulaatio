@@ -18,7 +18,7 @@ public class Kaytli implements Runnable {
     private Maasto maasto;
     private Paivittaja paivittaja;
     private JMenuBar valikko;
-    JMenuItem maastonResetointinappi;
+    JMenuItem portaat;
     private int ruutukoko;
 
     public Kaytli() {
@@ -52,13 +52,20 @@ public class Kaytli implements Runnable {
         valikko = new JMenuBar();
 
         JMenu valikkonappi = new JMenu("Valikko");
-        valikkonappi.setMnemonic(KeyEvent.VK_A);
-        maastonResetointinappi = new JMenuItem("Uusi maasto",
-                         KeyEvent.VK_T);
-        valikkonappi.add(maastonResetointinappi);
+        JMenu uusiMaastovalikko = new JMenu("Vaihda maastoa");
+        portaat = new JMenuItem("Portaat");
+        JMenuItem random = new JMenuItem("Satunnainen");
+        JMenuItem tasainen = new JMenuItem("Tasainen");
+        uusiMaastovalikko.add(portaat);
+        uusiMaastovalikko.add(random);
+        uusiMaastovalikko.add(tasainen);
+        valikkonappi.add(uusiMaastovalikko);
+        JMenuItem poistaVedet = new JMenuItem("Poista vedet");
+        valikkonappi.add(poistaVedet);
         Maastoikkuna alusta = new Maastoikkuna(maasto, paivittaja);
-        ActionListener v = new Valikkokuuntelija(alusta);
-        maastonResetointinappi.addActionListener(v);
+        ActionListener porrask = new Porraskuuntelija(alusta);
+        portaat.addActionListener(porrask);
+//        random.addActionListener();
         valikko.add(valikkonappi);
         kehys.setJMenuBar(valikko);
         container.add(alusta);
