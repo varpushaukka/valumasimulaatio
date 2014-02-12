@@ -62,6 +62,12 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         paivittaja.nollaa(maa);
         this.repaint();
     }
+    public void alustaSatPorrasMaasto() {
+        maa.asetaSatunnaisetPortaatMaasto();
+        maa.asetaVesi();
+        paivittaja.nollaa(maa);
+        this.repaint();
+    }
     
     //TODO *** tämän metodin voisin pilkkoa pienempiin osiin ***
     @Override

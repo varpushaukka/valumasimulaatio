@@ -51,6 +51,19 @@ public class Maasto {
             }
         }
     }
+    
+    public void asetaSatunnaisetPortaatMaasto() {
+        for (int x = 0; x < koko; x++) {
+            for (int y = 0; y < koko; y++) {
+                float korkeus;
+                if (x % 20 == 0 && y % 20 == 0) korkeus = 10 + 1 / (0.1f + rnd.nextFloat());
+                else if (x % 20 == 0) korkeus = getMaankorkeus(x, y - 1);
+                else korkeus = getMaankorkeus(x - 1, y);
+                setMaankorkeus(x, y, korkeus);
+            }
+        }
+    }
+    
     public void asetaVesi() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
