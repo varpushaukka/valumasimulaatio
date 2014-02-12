@@ -30,8 +30,8 @@ public class Maasto {
     public void asetaMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
-              setMaankorkeus(i, j, 10 + rnd.nextFloat());
-//                setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
+//              setMaankorkeus(i, j, 10 + rnd.nextFloat());
+                setMaankorkeus(i, j, 10 + (koko - i) / 15 + (koko - j) / 15);
 //                setMaankorkeus(i, j, 11);
 
             }
@@ -156,7 +156,8 @@ public class Maasto {
      * @param y 
      */
     public void tasaaPysty(int x, int y) {
-        valuta(x, y, x, y +1, x - 1, y, x + 1, y);
+        valuta(x, y, x, y + 1, x - 1, y, x + 1, y);
+        valuta(x, y + 1, x, y, x - 1, y + 1, x + 1, y + 1);
 //        tasaa(x, y, x, y + 1);
     }
     /**
@@ -165,7 +166,8 @@ public class Maasto {
      * @param y 
      */
     public void tasaaVaaka(int x, int y) {
-        valuta(x, y, x + 1, y, x, y -1, x, y + 1);
+        valuta(x, y, x + 1, y, x, y - 1, x, y + 1);
+        valuta(x + 1, y, x, y, x + 1, y - 1, x + 1, y + 1);
 //        tasaa(x, y, x + 1, y);
     }
 

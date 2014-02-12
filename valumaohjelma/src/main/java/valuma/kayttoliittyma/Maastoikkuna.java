@@ -88,8 +88,6 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     public void mouseClicked(MouseEvent me) {
         paivittaja.asetaSateenPaikka(maastoXksi(me.getX(), me.getY()), maastoZksi(me.getX(), me.getY()));
         System.out.println("vettä sataa pisteeseen " + maastoXksi(me.getX(), me.getY()) + ", " + maastoZksi(me.getX(), me.getY()));
-       
-        
     }
 
     @Override

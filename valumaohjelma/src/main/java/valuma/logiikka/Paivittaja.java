@@ -32,7 +32,7 @@ public class Paivittaja {
     }
 
     public void valuta() {
-        for (int i = 0; i < (koko * koko) * 2; i++) {
+        for (int i = 0; i < (koko * koko) * 6; i++) {
             int x = rand.nextInt(koko + 1) - 1;
             int y = rand.nextInt(koko + 1) - 1;
             if (rand.nextDouble() > 0.75) {
