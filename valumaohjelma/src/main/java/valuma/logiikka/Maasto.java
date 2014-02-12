@@ -121,21 +121,25 @@ public class Maasto {
         siirraVetta(x1, y1, x2, y2, maara * 0.9f);
     }
     
+    public void siirraMaataAlamakeen(int x1, int y1, int x2, int y2, float maara) {
+        float enimmaissiirto = (getMaankorkeus(x1, y1) - getMaankorkeus(x2, y2)) / 2;
+        if (enimmaissiirto < 0) return;
+        if (maara > enimmaissiirto) maara = enimmaissiirto;
+        siirraMaata(x1, y1, x2, y2, maara);
+    }
+    
     public void valuta(int x1, int y1, int x2, int y2, int vx1, int vy1, int vx2, int vy2) {
-        // 
-        float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
-        float virtaus = (getYhteiskorkeus(x1, y1) - getYhteiskorkeus(x2, y2)) / 2;
-        if (virtaus < 0) return;
+        float korkeusero = (getYhteiskorkeus(x1, y1) - getYhteiskorkeus(x2, y2));
+        if (korkeusero < 0) return;
+        float virtaus = korkeusero / 2;
         if (virtaus > getVedenkorkeus(x1, y1)) virtaus = getVedenkorkeus(x1, y1);
-        float lahtevanMaanOsuus = 0.5f * virtaus / (0.5f + virtaus);
+        float lahtevanMaanOsuus = 0.5f * korkeusero / (0.5f + korkeusero);
         float lahtevanMaanMaara = virtaus * lahtevanMaanOsuus;
         float lahtevanVedenMaara = virtaus - lahtevanMaanMaara;
-        siirraMaata(x1, y1, x2, y2, lahtevanMaanMaara * 0.5f);
-        siirraMaata(vx1, vy1, x2, y2, lahtevanMaanMaara * 0.25f);
-        siirraMaata(vx2, vy2, x2, y2, lahtevanMaanMaara * 0.25f);
+        siirraMaataAlamakeen(x1, y1, x2, y2, lahtevanMaanMaara * 0.5f);
+        siirraMaataAlamakeen(vx1, vy1, x2, y2, lahtevanMaanMaara * 0.25f);
+        siirraMaataAlamakeen(vx2, vy2, x2, y2, lahtevanMaanMaara * 0.25f);
         siirraVetta(x1, y1, x2, y2, lahtevanVedenMaara);
-        
-        
     }
 
     public void tasaa(int x1, int y1, int x2, int y2) {
