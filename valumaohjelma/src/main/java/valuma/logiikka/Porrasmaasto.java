@@ -17,7 +17,7 @@ public class Porrasmaasto extends Maasto{
     }
 
     @Override
-    public void asetaMaasto() {
+    public void asetaPorrasMaasto() {
         for (int i = 0; i < super.getKoko(); i++) {
             for (int j = 0; j < super.getKoko(); j++) {
                 setMaankorkeus(i, j, 10 + (super.getKoko() - i) / 15 + (super.getKoko() - j) / 15);

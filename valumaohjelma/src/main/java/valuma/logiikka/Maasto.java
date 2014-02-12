@@ -11,6 +11,7 @@ public class Maasto {
     private float[][] maankorkeus;
     private float[][] vedenkorkeus;
     private int koko;
+    private final float tasautuvuus = 0.1f;
     private Random rnd;
     
 /**
@@ -22,12 +23,12 @@ public class Maasto {
         maankorkeus = new float[koko][koko];
         vedenkorkeus = new float[koko][koko];
         rnd = new Random();
-        this.asetaMaasto();
+        this.asetaPorrasMaasto();
         this.asetaVesi();
     }
     
 
-    public void asetaMaasto() {
+    public void asetaPorrasMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
 //              setMaankorkeus(i, j, 10 + rnd.nextFloat());
@@ -37,7 +38,23 @@ public class Maasto {
             }
         }
     }
+
+    public void asetaSatunnainenMaasto() {
+        for (int i = 0; i < koko; i++) {
+            for (int j = 0; j < koko; j++) {
+                setMaankorkeus(i, j, 10 + rnd.nextFloat());
+            }
+        }
+    }
     
+    public void asetaTasainenMaasto() {
+        for (int i = 0; i < koko; i++) {
+            for (int j = 0; j < koko; j++) {
+                setMaankorkeus(i, j, 11);
+
+            }
+        }
+    }
     public void asetaVesi() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
@@ -136,9 +153,9 @@ public class Maasto {
         float lahtevanMaanOsuus = 0.5f * korkeusero / (0.5f + korkeusero);
         float lahtevanMaanMaara = virtaus * lahtevanMaanOsuus;
         float lahtevanVedenMaara = virtaus - lahtevanMaanMaara;
-        siirraMaataAlamakeen(x1, y1, x2, y2, lahtevanMaanMaara * 0.5f);
-        siirraMaataAlamakeen(vx1, vy1, x2, y2, lahtevanMaanMaara * 0.25f);
-        siirraMaataAlamakeen(vx2, vy2, x2, y2, lahtevanMaanMaara * 0.25f);
+        siirraMaataAlamakeen(x1, y1, x2, y2, lahtevanMaanMaara * (1 - tasautuvuus));
+        siirraMaataAlamakeen(vx1, vy1, x2, y2, lahtevanMaanMaara * tasautuvuus / 2f);
+        siirraMaataAlamakeen(vx2, vy2, x2, y2, lahtevanMaanMaara * tasautuvuus / 2f);
         siirraVetta(x1, y1, x2, y2, lahtevanVedenMaara);
     }
 
