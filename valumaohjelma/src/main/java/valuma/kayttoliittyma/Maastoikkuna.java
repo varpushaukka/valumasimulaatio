@@ -42,8 +42,22 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     }
     
     //TODO *** pitää miettiä miten tämä toimii ***
-    public void alustaMaasto() {
+    public void alustaPorrasMaasto() {
         maa.asetaPorrasMaasto();
+        maa.asetaVesi();
+        paivittaja.nollaa(maa);
+        this.repaint();
+    }
+    
+    public void alustaRandomMaasto() {
+        maa.asetaSatunnainenMaasto();
+        maa.asetaVesi();
+        paivittaja.nollaa(maa);
+        this.repaint();
+    }
+    
+    public void alustaTasaMaasto() {
+        maa.asetaTasainenMaasto();
         maa.asetaVesi();
         paivittaja.nollaa(maa);
         this.repaint();

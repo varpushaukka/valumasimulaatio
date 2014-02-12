@@ -18,7 +18,7 @@ public class Porraskuuntelija implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent ae) {
-        ikkuna.alustaMaasto();
+        ikkuna.alustaPorrasMaasto();
         System.out.println("Luotu uusi maasto");
     }
 
