@@ -20,6 +20,11 @@ public class Paivittaja {
         vesimaa = maailma;
         koko = vesimaa.getKoko();
     }
+    public void nollaa(Maasto uusiMaa) {
+        vesimaa = uusiMaa;
+        sateenXpaikka = -20;
+        sateenYpaikka = -20;
+    }
 
     public void paivita() {
         valuta();

@@ -11,7 +11,7 @@ import java.awt.event.ActionListener;
 import javax.swing.*;
 import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
-import valuma.logiikka.Porrasmaasto;
+
 
 public class Kaytli implements Runnable {
 
