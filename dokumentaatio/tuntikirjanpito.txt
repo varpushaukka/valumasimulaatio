@@ -5,7 +5,7 @@ Tuntikirjanpito:
 29.1.2014: 1h
 - aiheen miettiminen ja kirjoittaminen
 20-23.1.2014: 2h 
-- logiikkaluokkien koodaus
+- logiikkaluokkien koodaus ja erilaisten logiikoiden kokeilu
 24.1.2014: 3h
 25.1.2014: 0,5h
 27.1.2014: 4h

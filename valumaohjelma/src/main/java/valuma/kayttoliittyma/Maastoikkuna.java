@@ -40,7 +40,6 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         this.addMouseMotionListener(this);
     }
     
-    //TODO *** pitää miettiä miten tämä toimii ***
     public void alustaPorrasMaasto() {
         maa.asetaPorrasMaasto();
         nollaaParametrit();
@@ -62,8 +61,7 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         paivittaja.nollaa(maa);
         this.repaint();
     }
-    
-    //TODO *** tämän metodin voisin pilkkoa pienempiin osiin ***
+
     @Override
     public void paintComponent(Graphics graphics) {
         super.paintComponent(graphics);

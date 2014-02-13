@@ -27,7 +27,9 @@ public class Maasto {
         this.asetaVesi();
     }
     
-
+/**
+ * asettaa solujen korkeudet portaikkomaastoksi, jossa kukin porras on 15x15 pistettä
+ */
     public void asetaPorrasMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
@@ -35,7 +37,10 @@ public class Maasto {
             }
         }
     }
-
+    
+/**
+ * asettaa jokaisen solun korkeudeuden satunnaisesti siten että kokeus on jotain väliltä 10-11
+ */
     public void asetaSatunnainenMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
@@ -44,6 +49,9 @@ public class Maasto {
         }
     }
     
+/**
+ * asettaa jokaisen solun korkeudeksi 11
+ */
     public void asetaTasainenMaasto() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
@@ -51,7 +59,10 @@ public class Maasto {
             }
         }
     }
-    
+
+/**
+ * 
+ */
     public void asetaSatunnainenPorrasMaasto() {
         for (int x = 0; x < koko; x++) {
             for (int y = 0; y < koko; y++) {
@@ -120,40 +131,53 @@ public class Maasto {
         setMaankorkeus(x, y, getMaankorkeus(x, y) + maara);
     }
     
-    public float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
+    private float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
         float pyynto = getYhteiskorkeus(x, y) - toivekorkeus;
         float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
         if (maxLuovutus >= pyynto) return pyynto;
         return maxLuovutus;
     }
     
-    public void lisaaAinetta(int x, int y, float muutos) {
+    private void lisaaAinetta(int x, int y, float muutos) {
         lisaaVetta(x, y, muutos * 0.9f);
         lisaaMaata(x, y, muutos * 0.1f);
     }
     
-    public void siirraMaata(int x1, int y1, int x2, int y2, float maara) {
+    private void siirraMaata(int x1, int y1, int x2, int y2, float maara) {
         lisaaMaata(x2, y2, maara);
         lisaaMaata(x1, y1, -maara);
     }
     
-    public void siirraVetta(int x1, int y1, int x2, int y2, float maara) {
+    private void siirraVetta(int x1, int y1, int x2, int y2, float maara) {
         lisaaVetta(x2, y2, maara);
         lisaaVetta(x1, y1, -maara);
     }
       
-    public void siirraAinetta(int x1, int y1, int x2, int y2, float maara) {
+    private void siirraAinetta(int x1, int y1, int x2, int y2, float maara) {
         siirraMaata(x1, y1, x2, y2, maara * 0.1f);
         siirraVetta(x1, y1, x2, y2, maara * 0.9f);
     }
     
-    public void siirraMaataAlamakeen(int x1, int y1, int x2, int y2, float maara) {
+    private void siirraMaataAlamakeen(int x1, int y1, int x2, int y2, float maara) {
         float enimmaissiirto = (getMaankorkeus(x1, y1) - getMaankorkeus(x2, y2)) / 2;
         if (enimmaissiirto < 0) return;
         if (maara > enimmaissiirto) maara = enimmaissiirto;
         siirraMaata(x1, y1, x2, y2, maara);
     }
-    
+    /**
+     * Valuttaa vettä lähtöpisteestä kohdepisteeseen
+     * laskee pisteiden välillä olevan korkeuseron ja virtauksen. 
+     * Jos korkeusero on negatiivinen, ei tee mitään. Siirtää maata lähtöpisteestä
+     * ja lähtöpisteen viereisistä pisteistä kohdepisteeseen.
+     * @param x1    lähtöpisteen x
+     * @param y1    lähtöpisteen y
+     * @param x2    kohdepisteen x
+     * @param y2    kohdepisteen y
+     * @param vx1   lähtöpisteen viereisen pisteen x
+     * @param vy1   lähtöpisteen viereisen pisteen y
+     * @param vx2   lähtöpisteen toisen viereisen pisteen x
+     * @param vy2   lähtöpisteen toisen viereisen pisteen y
+     */
     public void valuta(int x1, int y1, int x2, int y2, int vx1, int vy1, int vx2, int vy2) {
         float korkeusero = (getYhteiskorkeus(x1, y1) - getYhteiskorkeus(x2, y2));
         if (korkeusero < 0) return;
@@ -168,7 +192,7 @@ public class Maasto {
         siirraVetta(x1, y1, x2, y2, lahtevanVedenMaara);
     }
 
-    public void tasaa(int x1, int y1, int x2, int y2) {
+    private void tasaa(int x1, int y1, int x2, int y2) {
         float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
         float eka = paljonkoLuovuttaaAinetta(x1, y1, keskiarvo);
         float toka = paljonkoLuovuttaaAinetta(x2, y2, keskiarvo);
