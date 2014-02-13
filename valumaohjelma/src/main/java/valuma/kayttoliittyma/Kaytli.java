@@ -66,7 +66,7 @@ public class Kaytli implements Runnable {
         uusiMaastovalikko.add(satporras);
         valikkonappi.add(uusiMaastovalikko);
         
-        JMenuItem poistaVedet = new JMenuItem("Poista vedet");
+        JMenuItem poistaVedet = new JMenuItem("Käännä maastoa");
         valikkonappi.add(poistaVedet);
         
         Maastoikkuna alusta = new Maastoikkuna(maasto, paivittaja);
