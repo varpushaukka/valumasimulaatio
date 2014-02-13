@@ -16,7 +16,7 @@ public class Maasto {
     
 /**
  * Alustaa korkeusmatriisit
- * @param koko            maaston leveys ja pituus
+ * @param koko      maaston leveys ja pituus
  */
     public Maasto(int koko) {
         this.koko = koko;
@@ -61,7 +61,7 @@ public class Maasto {
     }
 
 /**
- * 
+ * asettaa 20x20 kokoisen alueen korkeuden satunnaisesti
  */
     public void asetaSatunnainenPorrasMaasto() {
         for (int x = 0; x < koko; x++) {
@@ -75,6 +75,9 @@ public class Maasto {
         }
     }
     
+/**
+ * asettaa veden korkeudeksi kullekin solulle 0
+ */    
     public void asetaVesi() {
         for (int i = 0; i < koko; i++) {
             for (int j = 0; j < koko; j++) {
@@ -164,6 +167,7 @@ public class Maasto {
         if (maara > enimmaissiirto) maara = enimmaissiirto;
         siirraMaata(x1, y1, x2, y2, maara);
     }
+    
     /**
      * Valuttaa vettä lähtöpisteestä kohdepisteeseen
      * laskee pisteiden välillä olevan korkeuseron ja virtauksen. 
