@@ -11,7 +11,6 @@ import javax.swing.JPanel;
 import javax.swing.Timer;
 import valuma.logiikka.Maasto;
 import valuma.logiikka.Paivittaja;
-import valuma.logiikka.Porrasmaasto;
 
 /**
  * Luo maaston grafiikat
@@ -44,26 +43,21 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     //TODO *** pitää miettiä miten tämä toimii ***
     public void alustaPorrasMaasto() {
         maa.asetaPorrasMaasto();
-        maa.asetaVesi();
-        paivittaja.nollaa(maa);
-        this.repaint();
+        nollaaParametrit();
     }
-    
     public void alustaRandomMaasto() {
         maa.asetaSatunnainenMaasto();
-        maa.asetaVesi();
-        paivittaja.nollaa(maa);
-        this.repaint();
+        nollaaParametrit();
     }
-    
     public void alustaTasaMaasto() {
         maa.asetaTasainenMaasto();
-        maa.asetaVesi();
-        paivittaja.nollaa(maa);
-        this.repaint();
+        nollaaParametrit();
     }
     public void alustaSatPorrasMaasto() {
-        maa.asetaSatunnaisetPortaatMaasto();
+        maa.asetaSatunnainenPorrasMaasto();
+        nollaaParametrit();
+    }
+    private void nollaaParametrit() {
         maa.asetaVesi();
         paivittaja.nollaa(maa);
         this.repaint();

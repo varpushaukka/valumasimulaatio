@@ -52,7 +52,7 @@ public class Maasto {
         }
     }
     
-    public void asetaSatunnaisetPortaatMaasto() {
+    public void asetaSatunnainenPorrasMaasto() {
         for (int x = 0; x < koko; x++) {
             for (int y = 0; y < koko; y++) {
                 float korkeus;
