@@ -1,5 +1,11 @@
 Aihe: Karkeistettu valumasimulaatio
 
-Toteutetaan soluautomaatti, jolla simuloidaan (karkeasti) veden valumista maastossa ja sen aiheuttamaa eroosiota. Jokaisella solulla on maankorkeus ja vedenkorkeus. Hilaa päivitetään satunnaisista kohdista siten, että lasketaan kahden vierekkäin pystysuunnassa ja vaakasuunnassa olevien solujen keskiarvo ja pyritään tasaamaan niiden yhteiskorkeus valuttamalla vettä solujen välillä mikäli vettä riittää kahden solun pinnan tasaamiseen. Aina kun vesi virtaa solusta pois, se vähentää maanpinnan korkeutta hieman, koska se kuluttaa sitä. 
+Toteutetaan soluautomaatti, jolla simuloidaan (karkeasti) veden valumista maastossa ja sen aiheuttamaa eroosiota. Jokaisella solulla on maankorkeus ja vedenkorkeus. Hilaa päivitetään satunnaisista kohdista siten, että lasketaan kahden vierekkäin pystysuunnassa ja vaakasuunnassa olevien solujen keskiarvo ja pyritään tasaamaan niiden yhteiskorkeus valuttamalla vettä solujen välillä mikäli vettä riittää kahden solun pinnan tasaamiseen. 
 
-Toiminnot: Käyttäjä valitsee hiirellä klikkaamalla kohdan, johon lisätään "sadetta". Kyseisen kohdan solujen veden korkeutta nostetaan tietty määrä. Tämän jälkeen lasketaan tietty määrä solujen välillä tapahtuvia virtauksia.
+Aina kun vesi virtaa solusta pois, se vähentää maanpinnan korkeutta hieman, koska se kuluttaa sitä. Virtaava vesi kuluttaa myös virtauksen vieressä olevia soluja riippuen korkeuserosta ja virtauksen määrästä.
+
+Toiminnot: Käyttäjä valitsee hiirellä klikkaamalla kohdan, johon lisätään "sadetta". Kyseisen kohdan solujen veden korkeutta nostetaan tietty määrä. Tämän jälkeen lasketaan tietty määrä solujen välillä tapahtuvia virtauksia. 
+
+Käyttäjä voi valikosta vaihtaa maastoa, jolloin myös kaikki sateet poistuvat.
+
+Jos käyttäjä klikkaa hiirellä maaston ulkopuolelle, sade loppuu maastossa ja maasto kuivuu pikkuhiljaa - lukuunottamatta mahdollisia altaita, joita maastoon syntyy.
