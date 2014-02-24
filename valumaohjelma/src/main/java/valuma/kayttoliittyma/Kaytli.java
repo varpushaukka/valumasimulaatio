@@ -66,8 +66,6 @@ public class Kaytli implements Runnable {
         uusiMaastovalikko.add(satporras);
         valikkonappi.add(uusiMaastovalikko);
         
-        JMenuItem poistaVedet = new JMenuItem("Käännä maastoa");
-        valikkonappi.add(poistaVedet);
         
         Maastoikkuna alusta = new Maastoikkuna(maasto, paivittaja);
         
@@ -99,6 +97,7 @@ class Randomkuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ikkuna.alustaRandomMaasto();
+        System.out.println("Luotu satunnainen maasto");
     }
     
 }
@@ -114,7 +113,7 @@ class Porraskuuntelija2 implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent ae) {
         ikkuna.alustaPorrasMaasto();
-        System.out.println("Luotu uusi maasto");
+        System.out.println("Luotu uusi porrasmaasto");
     }
 }
 
@@ -129,6 +128,7 @@ class Tasakuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ikkuna.alustaTasaMaasto();
+        System.out.println("Luotu tasainen maasto");
     }
     
 }
@@ -143,6 +143,7 @@ class SatPorrasKuuntelija implements ActionListener {
     @Override
     public void actionPerformed(ActionEvent e) {
         ikkuna.alustaSatPorrasMaasto();
+        System.out.println("Luotu satunnainen porrasmaasto");
     }
     
 }

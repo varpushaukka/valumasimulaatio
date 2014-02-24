@@ -49,6 +49,14 @@ public class PaivittajaTest {
             }
         }
     }
+    @Test
+    public void nollausPoistaaVedet() {
+        for (int i = 0; i < testiMaa.getKoko(); i++) {
+            for (int j = 0; j < testiMaa.getKoko(); j++) {
+                assertTrue(testiMaa.getVedenkorkeus(i, j) == 0);
+            }
+        }
+    }
 
     private double etaisyys(int vaskateetti, int viekateetti) {
         return Math.sqrt(Math.pow(vaskateetti, 2) + Math.pow(viekateetti, 2));
