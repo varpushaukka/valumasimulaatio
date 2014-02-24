@@ -181,33 +181,47 @@ public class Maasto {
     }
 
     /**
-     * 
+     * lisää tiettyyn pisteeseen parametrina annetun määrän vettä
      * @param x
      * @param y
-     * @param maara 
+     * @param maara lisättävän veden määrä
      */
     public void lisaaVetta(int x, int y, float maara) {
         setVedenkorkeus(x, y, getVedenkorkeus(x, y) + maara);
     }
 
+    /**
+     * lisää tiettyyn pisteeseen parametrina annetun määärän maata
+     * @param x
+     * @param y
+     * @param maara lisättävän maan määrä
+     */
     public void lisaaMaata(int x, int y, float maara) {
         setMaankorkeus(x, y, getMaankorkeus(x, y) + maara);
     }
 
-    private float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
-        float pyynto = getYhteiskorkeus(x, y) - toivekorkeus;
-        float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
-        if (maxLuovutus >= pyynto) {
-            return pyynto;
-        }
-        return maxLuovutus;
-    }
+//    private float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
+//        float pyynto = getYhteiskorkeus(x, y) - toivekorkeus;
+//        float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
+//        if (maxLuovutus >= pyynto) {
+//            return pyynto;
+//        }
+//        return maxLuovutus;
+//    }
 
-    private void lisaaAinetta(int x, int y, float muutos) {
-        lisaaVetta(x, y, muutos * 0.9f);
-        lisaaMaata(x, y, muutos * 0.1f);
-    }
+//    private void lisaaAinetta(int x, int y, float muutos) {
+//        lisaaVetta(x, y, muutos * 0.9f);
+//        lisaaMaata(x, y, muutos * 0.1f);
+//    }
 
+    /**
+     * kutsuu maan lisäysmetodeja positiivisin arvoin kohdesolulle ja negatiivisiin arvoin lähtösolulle
+     * @param x1 lähtösolun x
+     * @param y1 lähtösolun y
+     * @param x2 kohdesolun x
+     * @param y2 kohdesolun y
+     * @param maara siirtyvä maan määrä
+     */
     private void siirraMaata(int x1, int y1, int x2, int y2, float maara) {
         lisaaMaata(x2, y2, maara);
         lisaaMaata(x1, y1, -maara);
