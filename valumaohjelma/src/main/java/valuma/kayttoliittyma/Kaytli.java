@@ -18,18 +18,22 @@ public class Kaytli implements Runnable {
     private JFrame kehys;
     private Maasto maasto;
     private Paivittaja paivittaja;
-    private JMenuBar valikko;
-    JMenuItem portaat;
     private int ruutukoko;
     private int maastonKoko;
 
+    /**
+     * alustaa ikkunan koon ja maaston koon
+     */
     public Kaytli() {
         ruutukoko = 700;
         maastonKoko = 150;
         alustaMaasto();
     }
     
-    public void alustaMaasto() {
+    /**
+     * alustaa maaston ja päivittäjän. Konstruktori käyttää tätä.
+     */
+    public final void alustaMaasto() {
         maasto = new Maasto(maastonKoko);
         paivittaja = new Paivittaja(maasto);
     }
@@ -51,12 +55,16 @@ public class Kaytli implements Runnable {
 
     }
 
+    /**
+     * Luo kaikki käyttöliittymäkomponentit, eli valikot ja maastoikkunan.
+     * @param container 
+     */
     private void luoKomponentit(Container container) {
-        valikko = new JMenuBar();
+        JMenuBar valikko = new JMenuBar();
 
         JMenu valikkonappi = new JMenu("Valikko");
         JMenu uusiMaastovalikko = new JMenu("Vaihda maastoa");
-        portaat = new JMenuItem("Portaat");
+        JMenuItem portaat = new JMenuItem("Portaat");
         JMenuItem random = new JMenuItem("Satunnainen");
         JMenuItem tasainen = new JMenuItem("Tasainen");
         JMenuItem satporras = new JMenuItem("Satunnaiset portaat");

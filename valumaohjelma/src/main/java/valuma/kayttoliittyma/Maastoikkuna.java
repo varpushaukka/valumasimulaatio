@@ -55,7 +55,11 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
      */
     private Timer ajastin;
 
-    
+/**
+ * Konstruktori, joka alustaa Timer-olion ja lisää hiirenkuuntelijat
+ * @param maa
+ * @param paivittaja 
+ */    
     public Maastoikkuna(Maasto maa, Paivittaja paivittaja) {
         this.maa = maa;
         this.paivittaja = paivittaja;
@@ -67,6 +71,9 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         this.addMouseMotionListener(this);
     }
     
+    /**
+     * Maaston maankorkeuden uudelleenasettava metodi
+     */
     public void alustaPorrasMaasto() {
         maa.asetaPorrasMaasto();
         nollaaParametrit();
@@ -83,6 +90,10 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         maa.asetaSatunnainenPorrasMaasto();
         nollaaParametrit();
     }
+    
+    /**
+     * alustusmetodien apuna käytettävä vesien tyhjentävä ja päivittäjän nollaava metodi
+     */
     private void nollaaParametrit() {
         maa.asetaVesi();
         paivittaja.nollaa(maa);
@@ -115,10 +126,23 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
         }
     }
     
+    /**
+     * PaintComponentissa tehdyn projektion vuoksi ruudun koordinaatit eivät ole samoja maaston koordinaattien kanssa.
+     * Tämä muuttaa ruudun koordinaatit takaisin maaston x-koordinaatiksi
+     * @param rx    ruudun x-koordinaatti
+     * @param ry    ruudun y-koordinaatti
+     * @return      maaston x-koordinaatti
+     */
     private int maastoXksi(int rx, int ry) {
         return (int) ((rx - lahtox + (ry - lahtoy) * zskaalaus) / (xskaalaus + zskaalaus));
     }
     
+    /**
+     * Muuttaa ruudun koordinaatit takaisin maaston z-koordinaatiksi
+     * @param rx    ruudun x-koordinaatti
+     * @param ry    ruudun y-koordinaatti
+     * @return      maaston z-koordinaatti
+     */
     private int maastoZksi(int rx, int ry) {
         return (int) ((-rx + lahtox + (ry - lahtoy) * xskaalaus) / (xskaalaus + zskaalaus));
     }
