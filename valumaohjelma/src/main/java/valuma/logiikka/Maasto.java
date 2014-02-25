@@ -200,19 +200,7 @@ public class Maasto {
         setMaankorkeus(x, y, getMaankorkeus(x, y) + maara);
     }
 
-//    private float paljonkoLuovuttaaAinetta(int x, int y, float toivekorkeus) {
-//        float pyynto = getYhteiskorkeus(x, y) - toivekorkeus;
-//        float maxLuovutus = getVedenkorkeus(x, y) / 0.9f;
-//        if (maxLuovutus >= pyynto) {
-//            return pyynto;
-//        }
-//        return maxLuovutus;
-//    }
 
-//    private void lisaaAinetta(int x, int y, float muutos) {
-//        lisaaVetta(x, y, muutos * 0.9f);
-//        lisaaMaata(x, y, muutos * 0.1f);
-//    }
 
     /**
      * kutsuu maan lisäysmetodeja positiivisin arvoin kohdesolulle ja negatiivisiin arvoin lähtösolulle
@@ -232,10 +220,6 @@ public class Maasto {
         lisaaVetta(x1, y1, -maara);
     }
 
-//    private void siirraAinetta(int x1, int y1, int x2, int y2, float maara) {
-//        siirraMaata(x1, y1, x2, y2, maara * 0.1f);
-//        siirraVetta(x1, y1, x2, y2, maara * 0.9f);
-//    }
     private void siirraMaataAlamakeen(int x1, int y1, int x2, int y2, float maara) {
         float enimmaissiirto = (getMaankorkeus(x1, y1) - getMaankorkeus(x2, y2)) / 2;
         if (enimmaissiirto < 0) {
@@ -280,17 +264,7 @@ public class Maasto {
         siirraVetta(x1, y1, x2, y2, lahtevanVedenMaara);
     }
 
-//    private void tasaa(int x1, int y1, int x2, int y2) {
-//        float keskiarvo = (getYhteiskorkeus(x1, y1) + getYhteiskorkeus(x2, y2)) / 2;
-//        float eka = paljonkoLuovuttaaAinetta(x1, y1, keskiarvo);
-//        float toka = paljonkoLuovuttaaAinetta(x2, y2, keskiarvo);
-//        if (eka > 0) {
-//            siirraAinetta(x1, y1, x2, y2, eka);
-//        }
-//        if (toka > 0) {
-//            siirraAinetta(x2, y2, x1, y1, toka);
-//        }
-//    }
+
     /**
      * tasaa kahden päällekkäisen solun välillä vedenpinnan mahdollisimman
      * tasaiseksi
@@ -301,7 +275,6 @@ public class Maasto {
     public void tasaaPysty(int x, int y) {
         valuta(x, y, x, y + 1, x - 1, y, x + 1, y);
         valuta(x, y + 1, x, y, x - 1, y + 1, x + 1, y + 1);
-//        tasaa(x, y, x, y + 1);
     }
 
     /**
@@ -314,6 +287,5 @@ public class Maasto {
     public void tasaaVaaka(int x, int y) {
         valuta(x, y, x + 1, y, x, y - 1, x, y + 1);
         valuta(x + 1, y, x, y, x + 1, y - 1, x + 1, y + 1);
-//        tasaa(x, y, x + 1, y);
     }
 }

@@ -17,15 +17,42 @@ import valuma.logiikka.Paivittaja;
  * @author varpushaukka
  */
 public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionListener {
+    /**
+     * Konstruktorille annettu Maasto-olio
+     */
     private Maasto maa;
+    
+    /**
+     * Konstruktorille annettu Paivittaja-olio
+     */
     private Paivittaja paivittaja;
+    
+    /**
+     * kohta, josta maastoa aletaan piirtämään ruudulla
+     */
     private int lahtox;
     private int lahtoy;
+    
+    /**
+     * maaston kallistumisen määrittelevät muuttujat
+     */
     private double xskaalaus = 1.5;
     private double zskaalaus = 1.7; 
+    
+    /**
+     * Maaston esittämisen apuna käytettävä kerroin
+     */
     private double korkeusskaalaus = 10; 
-    private int hiirenZmaastossa = -20;
-    private int hiirenXmaastossa = -20;
+    
+    /**
+     * hiiren jäljen piirtämiseen ja sateiden tiputtamisen apumuuttujat
+     */
+    private int hiirenZmaastossa = -1;
+    private int hiirenXmaastossa = -1;
+    
+    /**
+     * animoinnin avuksi luotu Timer-olio
+     */
     private Timer ajastin;
 
     
