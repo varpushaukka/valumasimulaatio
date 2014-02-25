@@ -215,11 +215,28 @@ public class Maasto {
         lisaaMaata(x1, y1, -maara);
     }
 
+    /**
+     * kutsuu veden lisäysmetodeja positiivisin arvoin kohdesolulle ja negatiivisin arvoin lähtösolulle
+     * @param x1    lähtösolun x
+     * @param y1    lähtösolun y
+     * @param x2    kohdesolun x
+     * @param y2    kohdesolun y
+     * @param maara     siirtyvän veden määrä
+     */
     private void siirraVetta(int x1, int y1, int x2, int y2, float maara) {
         lisaaVetta(x2, y2, maara);
         lisaaVetta(x1, y1, -maara);
     }
 
+    /**
+     * käyttää siirräMaata -metodia jos maankorkeus on kohdesolussa pienempi kuin lähtösolussa.
+     * Tämän metodin avulla varmistetaan ettei maa siirry koskaan ylämäkeen
+     * @param x1
+     * @param y1
+     * @param x2
+     * @param y2
+     * @param maara 
+     */
     private void siirraMaataAlamakeen(int x1, int y1, int x2, int y2, float maara) {
         float enimmaissiirto = (getMaankorkeus(x1, y1) - getMaankorkeus(x2, y2)) / 2;
         if (enimmaissiirto < 0) {

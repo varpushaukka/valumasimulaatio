@@ -86,6 +86,12 @@ public class Paivittaja {
         this.sateenYpaikka = y;
     }
 
+    /**
+     * sada-metodin apufunktio ympyrän säteen laskemiseksi
+     * @param vaskateetti x -koordinaattien erotus
+     * @param viekateetti y -koordinaattien erotus
+     * @return kahden pisteen etäisyys
+     */
     private double etaisyys(int vaskateetti, int viekateetti) {
         return Math.sqrt(Math.pow(vaskateetti, 2) + Math.pow(viekateetti, 2));
     }

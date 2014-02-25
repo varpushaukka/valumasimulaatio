@@ -77,7 +77,7 @@ public class Kaytli implements Runnable {
         
         Maastoikkuna alusta = new Maastoikkuna(maasto, paivittaja);
         
-        ActionListener porrask = new Porraskuuntelija2(alusta);
+        ActionListener porrask = new Porraskuuntelija(alusta);
         portaat.addActionListener(porrask);
         random.addActionListener(new Randomkuuntelija(alusta));
         tasainen.addActionListener(new Tasakuuntelija(alusta));
@@ -94,6 +94,10 @@ public class Kaytli implements Runnable {
     
 }
 
+/**
+ * Valikon Vaihda maastoa --> Satunnainen -napille annettava kuuntelija
+ * @author varpushaukka
+ */
 class Randomkuuntelija implements ActionListener {
 
     private Maastoikkuna ikkuna;
@@ -110,11 +114,16 @@ class Randomkuuntelija implements ActionListener {
     
 }
 
-class Porraskuuntelija2 implements ActionListener {
+
+/**
+ * Valikon Vaihda maastoa --> Portaat -napille annettava kuuntelija
+ * @author varpushaukka
+ */
+class Porraskuuntelija implements ActionListener {
 
     private Maastoikkuna ikkuna;
 
-    public Porraskuuntelija2(Maastoikkuna ikkuna) {
+    public Porraskuuntelija(Maastoikkuna ikkuna) {
         this.ikkuna = ikkuna;
     }
 
@@ -125,6 +134,10 @@ class Porraskuuntelija2 implements ActionListener {
     }
 }
 
+/**
+ * Valikon Vaihda maastoa --> Tasainen -napille annettava kuuntelija
+ * @author varpushaukka
+ */
 class Tasakuuntelija implements ActionListener {
 
     private Maastoikkuna ikkuna;
@@ -140,6 +153,11 @@ class Tasakuuntelija implements ActionListener {
     }
     
 }
+
+/**
+ * Valikon Vaihda maastoa --> Satunnaiset portaat -napille annettava kuuntelija
+ * @author varpushaukka
+ */
 class SatPorrasKuuntelija implements ActionListener {
 
     private Maastoikkuna ikkuna;

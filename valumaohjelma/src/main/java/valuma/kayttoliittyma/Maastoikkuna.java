@@ -182,6 +182,11 @@ public class Maastoikkuna extends JPanel implements MouseListener, MouseMotionLi
     }
     
 }
+
+/**
+ * Timer-oliolle parametrina annettava olio
+ * @author varpushaukka
+ */
 class Ajastinkuuntelija implements ActionListener {
     private Paivittaja paiv;
     private Maastoikkuna ikk;
