@@ -1,0 +1,9 @@
+Valumasimulaatio käynnistetään joko ohjelmointiympäristöstä tai ajamalla jar-paketti. Ohjelman käynnistyessä valumasimulaatio aloittaa välittömästi päivittämisen. 
+
+Simulaatiota on tarkoitus kokeilla vaihtamalla sateen paikkaa maastossa. Hiirellä klikataan sitä kohtaa maastosta, jonka ympärille halutaan satavan vettä. Hiirellä osoitetaan maaston pohjaa. Valkoinen pystyviiva osoittaa mihin kohtaan maaston pintaa vesisade osuu. Vesisade pysyy kyseisessä kohdassa kunnes klikataan jotakin muuta kohtaa. 
+
+Vesisateen voi myös asettaa maaston ulkopuolelle. Tällöin maasto kuivuu pikkuhiljaa lukuunottamatta sinne jääviä altaita. Vesi valuu reunojen yli tyhjyyteen ja katoaa.
+
+
+
+
