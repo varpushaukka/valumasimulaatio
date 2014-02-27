@@ -1,5 +1,6 @@
 Tuntikirjanpito:
-dl. 5: mun ohjelma on käytännössä valmis, enää puuttuu loput javadocit ja testit. Toteutan ton "käännä maastoa" napin ens viikolla jos ehdin.
+dl. 6: en toteuttanut käännä maastoa -nappia tai mitään muutakaan, mutta mielestäni tämä aihe on niin hieno, että varmaan joskus parentelen valumalogiikkaa vielä lisää (tekisin haihtumisen ja keksisin jotain jolla vesi loisi maastoon jokimaisia uomia) Toteuttaisin ehkä myös sateiden voimakkuuden ja säteen säätelemisen, se ei ainakaan olisi vaikeaa.
+
 
 - githubin ja netbeansin asetusten konfaus
 23.1.2014: 2h
@@ -40,6 +41,9 @@ dl. 5: mun ohjelma on käytännössä valmis, enää puuttuu loput javadocit ja 
 3.2.2014: 1h
 6.2.2014: 2h
 13.2.2014: 0,5h
+14.2.2014: 1h
+24.2.2014: 2h
+25.2.2014: 2h
 - otm-kurssin asioiden kertaus ja opettelu
 24.1.2014: 1h
 30.1.2014: 0,5h
