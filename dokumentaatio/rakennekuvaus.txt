@@ -1,0 +1,10 @@
+Valumasimulaatio-ohjelman rakenne koostuu logiikkapuolesta ja käyttöliittymäpuolesta. Logiikka hoitaa maaston rakentamisen ja veden valuttamisen, sekä valumisen ja sateiden päivittämisen. Logiikka on jaettu Maasto-luokkaan, jonka vastuulla on kaikki maaston käsittely ja Päivittäjä-luokkaan, jonka vastuulla on valutusten ja sateiden ylläpitäminen. 
+
+Maaston "solut" ovat tallessa vain maankorkeus ja vedenkorkeus -matriiseissa sen sijaan että ne olisivat omia olioitaan. Tämä valinta on tietoinen ja tehty ohjelman nopeuttamiseksi.
+
+Käyttöliittymä alkaa Pääohjelma-luokasta, jossa on vain main, joka perustaa yhden käyttöliittymä-olion ja kutsuu sitä swingin kautta.
+
+Käytli-luokka luo valikot ja JPanelin perivän Maastoikkunan. Käytli myös luo Maaston ja Päivittäjän, jotka se antaa parametreina Maastoikkuna-luokalle. Käytli-luokka ei käsittele Maasto tai Päivittäjä-luokkia suoraan, vaan käyttöliittymän actionlistenerit kutsuvat Maastoikkunan metodeja niiden käsittelemiseksi.
+
+Maastoikkuna hoitaa kaiken piirtämisen ja toteuttaa hiiren klikkauksiin ja liikkumiseen liittyvät operaatiot. Maastoikkuna hoitaa samalla myös animoinnin. Maastoikkuna käyttää piirtämiseen Maasto-luokan säilyttämiä tietoja ja päivittämiseen Päivittäjä-luokkaa.
+
