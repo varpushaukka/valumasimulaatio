@@ -1,0 +1,5 @@
+Valumasimulaation testaaminen on ollut osin visuaalista, koska en osannut arvata millaisia tuloksia joistain tapahtumasarjoista seuraa. Aluksi valutusmetodit eivät kuluttaneet viereisiä soluja lainkaan, jonka seurauksena maastoon jäi korkeita piikkejä. Tämä olisi ollut vaikea huomata ennen kunnollisen grafiikan tekemistä.
+
+Myös sopivan sateen määrää ja sädettä on ollut vaikea arvioida ennen kokeilemista. Testattavia aiheita on myös löytynyt vasta jälkikäteen. En keksinyt testata sitä, että maa ei kulje ylämäkeen ennen kuin näin ohjelmani tekevän sitä.
+
+Jos olisi enemmän aikaa, muuttaisin testien nimiä hieman järkevämmiksi ja tekisin hieman lisää testejä maastoluokalle. Olen projektin kuluessa ollut paljon innostuneempi testaamaan juttuja visuaalisesti kuin koodaamalla, joten testien tekemiseen on mennyt vähemmän aikaa kuin muuhun.
