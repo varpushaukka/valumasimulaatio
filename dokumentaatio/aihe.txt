@@ -8,4 +8,4 @@ Toiminnot: Käyttäjä valitsee hiirellä klikkaamalla kohdan, johon lisätään
 
 Käyttäjä voi valikosta vaihtaa maastoa, jolloin myös kaikki sateet poistuvat.
 
-Jos käyttäjä klikkaa hiirellä maaston ulkopuolelle, sade loppuu maastossa ja maasto kuivuu pikkuhiljaa - lukuunottamatta mahdollisia altaita, joita maastoon syntyy.
+Jos käyttäjä klikkaa hiirellä maaston ulkopuolelle, sade loppuu maastossa ja maasto kuivuu pikkuhiljaa - lukuunottamatta mahdollisia altaita, joita maastoon syntyy. Sateen säde on 10, joten jos sade asetetetaan kohtaan -5, -5, maastoon sataa hieman vettä.

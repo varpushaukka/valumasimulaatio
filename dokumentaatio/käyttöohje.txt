@@ -4,6 +4,5 @@ Simulaatiota on tarkoitus kokeilla vaihtamalla sateen paikkaa maastossa. Hiirell
 
 Vesisateen voi myös asettaa maaston ulkopuolelle. Tällöin maasto kuivuu pikkuhiljaa lukuunottamatta sinne jääviä altaita. Vesi valuu reunojen yli tyhjyyteen ja katoaa.
 
-
-
+Vasemmassa yläkulmassa on valikko, josta voidaan valita uusi maasto. Erilaisia maastotyyppejä on neljä. Porrasmaastoa ja satunnaista porrasmaastoa kokeilemalla pääsee näkemään nopeasti kuinka valumisen aiheuttama eroosio toimii. Tasaisessa ja satunnaisessa maastossa sen sijaan maa kuluu hitaammin ellei laita vesisadetta aivan maaston reunalle.
 
