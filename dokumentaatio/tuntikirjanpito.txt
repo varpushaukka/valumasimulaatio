@@ -44,6 +44,7 @@ dl. 6: en toteuttanut käännä maastoa -nappia tai mitään muutakaan, mutta mi
 14.2.2014: 1h
 24.2.2014: 2h
 25.2.2014: 2h
+26.2.2014: 2h
 - otm-kurssin asioiden kertaus ja opettelu
 24.1.2014: 1h
 30.1.2014: 0,5h
@@ -51,4 +52,6 @@ dl. 6: en toteuttanut käännä maastoa -nappia tai mitään muutakaan, mutta mi
 27.1.2014: 0,5h (assert)
 1.2.2014: 1,5h (swing)
 4.2.2014: 0,5h (MouseListener)
+- Viimeistely ja palautus
+28.2.2014: 3h
 
